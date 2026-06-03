@@ -1,103 +1,153 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Layers, Zap } from "lucide-react";
+import { Container } from "@/components/layout/container";
+import { CTASection } from "@/components/marketing/cta-section";
+import { SectionHeading } from "@/components/marketing/section-heading";
+import { TrustBadges } from "@/components/marketing/trust-badges";
+import { ProductCard } from "@/components/products/product-card";
+import { verticals } from "@/content/verticals";
+import { getFeaturedProducts } from "@/data/products";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export default function Home() {
+export default function HomePage() {
+  const featured = getFeaturedProducts();
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <section className="relative overflow-hidden border-b border-border/60 bg-[var(--brand-navy)] py-20 sm:py-28">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.35_0.12_250),transparent_55%)]" />
+        <Container className="relative">
+          <p className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+            Seyeon FlexWATCH · Hailo-8L · NDAA-free · Since 1997
+          </p>
+          <h1 className="max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-5xl sm:leading-tight">
+            Run your AI models on proven, deployment-ready camera hardware
+          </h1>
+          <p className="mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">
+            Optimized for tolling, ITS, and PTZ platforms. Add advanced on-device
+            AI to your existing roadway or pan-tilt cameras without a full
+            hardware redesign.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/products"
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "bg-[var(--brand-accent)] hover:bg-[var(--brand-accent)]/90"
+              )}
+            >
+              View Products
+              <ArrowRight className="size-4" />
+            </Link>
+            <Link
+              href="/technology"
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "border-slate-500 text-white hover:bg-white/10"
+              )}
+            >
+              Technology Overview
+            </Link>
+          </div>
+        </Container>
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+      <section className="py-12">
+        <Container>
+          <TrustBadges />
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container>
+          <SectionHeading
+            eyebrow="Solutions"
+            title="Built for toll, ITS, and PTZ integrators"
+            description="Seyeon's strongest commercial traction aligns with operators and OEMs who need credible edge AI without replacing proven optics."
+          />
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {verticals.map((v) => (
+              <Link
+                key={v.slug}
+                href={`/solutions/${v.slug}`}
+                className="group rounded-xl border border-border/80 bg-card/50 p-6 transition-colors hover:border-[var(--brand-accent)]/50"
+              >
+                <h3 className="text-lg font-semibold group-hover:text-[var(--brand-accent)]">
+                  {v.title}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">{v.summary}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[var(--brand-accent)]">
+                  Learn more <ArrowRight className="size-4" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-y border-border/60 bg-muted/20 py-16">
+        <Container>
+          <SectionHeading
+            eyebrow="Differentiators"
+            title="Integration-first edge AI"
+            description="Technical credibility for engineering-led buyers."
+          />
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {[
+              {
+                icon: Zap,
+                title: "FlexWATCH Open AI SDK",
+                body: "Five-step path to deploy proprietary models on-device—without rebuilding your VMS stack.",
+              },
+              {
+                icon: Layers,
+                title: "Lego-style modularity",
+                body: "20+ compact form factors plus finished bullet, dome, and PTZ options.",
+              },
+              {
+                icon: ArrowRight,
+                title: "Flexible video inputs",
+                body: "BT1120, LVDS, and YUV for PTZ blocks, thermal fusion, and multi-sensor gateways.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-border/80 p-6"
+              >
+                <item.icon className="size-6 text-[var(--brand-highlight)]" />
+                <h3 className="mt-4 font-semibold">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container>
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <SectionHeading
+              eyebrow="Catalog"
+              title="Featured modules & cameras"
+              description="Representative SKUs for quote and integration discussions."
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            <Link
+              href="/products"
+              className={cn(buttonVariants({ variant: "outline" }), "shrink-0")}
+            >
+              Full catalog
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((product) => (
+              <ProductCard key={product.slug} product={product} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <CTASection />
+    </>
   );
 }

@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AiRC — Active Image Recognition Command
 
-## Getting Started
+**Edge AI camera modules for tolling, ITS, and PTZ platforms.**
 
-First, run the development server:
+AiRC is building the next generation of AI-native proactive physical security—turning reactive video surveillance into intelligent, anticipatory systems through edge AI camera modules, drones, mobile towers, robots, and central orchestration (**AiR Command**).
+
+## Phase 1 focus (2026)
+
+Launch a high-trust **B2B marketing + quote-request platform** for:
+
+- Embedded AI camera modules
+- Intelligent edge AI cameras (private-label / powered by **Seyeon Tech FlexWATCH** + **Hailo-8L**)
+
+Checkout remains **Request Quote** in Phase 1. Headless commerce (Stripe / Shopify Hydrogen) is planned for a later phase.
+
+## Seyeon partnership
+
+AiRC distributes and integrates **Seyeon FlexWATCH** hardware with:
+
+- **FlexWATCH Open AI SDK** — five-step path to run customer proprietary models on-device
+- **Hailo-8L** — 13 TOPS, ~1.5W, multi-model, industrial temperature
+- **NDAA-free SoCs** — Eyenix, Ambarella, Hailo
+- **2 MP – 12 MP** resolutions, extensive Sony sensor support (rolling + global shutter)
+- **20+ Lego-style** compact form factors + bullet/dome/PTZ finished cameras
+- **ONVIF** Profile S / T / M
+- **Flexible inputs** — BT1120, LVDS, YUV for PTZ blocks, thermal, multi-sensor
+
+Seyeon's CEO has confirmed strongest commercial traction with:
+
+1. Toll road operators & ETC companies  
+2. ITS (Intelligent Transportation Systems) firms  
+3. Pan-Tilt-Zoom (PTZ) camera manufacturers  
+
+**Target accounts:** PIPS/Neology, Cohu, Transcore, Thales, and similar OEMs/integrators.
+
+**Core integration story:** Add advanced on-device AI (multi-model inference, better detection, behavior analytics, fewer false alarms) without redesigning the entire hardware stack.
+
+## Heritage
+
+Roots in computer vision since **1997** (Active Image Recognition Technology). More than 25 years of credible engineering heritage for technical B2B buyers.
+
+## Tech stack (this repo)
+
+- **Next.js 15** (App Router)
+- **TypeScript** (strict)
+- **Tailwind CSS v4** + **shadcn/ui**
+- **Lucide** icons
+- Product catalog: `data/products.ts`
+- Vertical content: `content/verticals.ts`
+- Contact forms: Server Actions (`app/actions/contact.ts`)
+
+## Getting started
 
 ```bash
+cp .env.example .env.local
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build
+npm run lint    # ESLint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+app/              # Routes (home, products, solutions, technology, about, contact)
+components/       # UI, layout, marketing, products, contact
+data/             # Product catalog (edit here for new SKUs)
+content/          # Vertical solution copy (+ MDX blog placeholder)
+lib/              # Site config, metadata, validations, structured data
+public/           # Static assets (add product photos here)
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Environment variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Purpose |
+|----------|---------|
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL for SEO / JSON-LD |
+| `CONTACT_EMAIL` | Displayed on contact page |
+| `CONTACT_WEBHOOK_URL` | Optional POST endpoint for form submissions |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Next steps
 
-## Deploy on Vercel
+1. **Content** — Replace placeholder copy with Seyeon-approved specs and photography  
+2. **Forms** — Wire `CONTACT_WEBHOOK_URL` to HubSpot, Resend, or CRM  
+3. **Analytics** — Plausible or GA4  
+4. **Commerce** — Stripe B2B quotes or Shopify Hydrogen when ready  
+5. **Blog / R&D lab** — MDX under `content/blog/` (see `content/mdx-placeholder.md`)  
+6. **Deploy** — Vercel or similar with production domain  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Proprietary — AiRC / Active Image Recognition Command Corporation.
