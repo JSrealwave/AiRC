@@ -104,13 +104,16 @@ scripts/             # Datasheet + brand export generators
 
 Never commit `.env.local` or a real `re_` key. Copy `.env.example` and fill `RESEND_API_KEY` locally and on Vercel.
 
+## Production
+
+Live on Vercel ([project](https://vercel.com/sullyjj-3116s-projects/airc)). DNS at GoDaddy. Canonical https://www.activeimagerecognition.com (apex redirects to www). Forms send through Resend to `sales@activeimagerecognition.com`; Outlook manages that inbox. No CRM — leave `CONTACT_WEBHOOK_URL` empty. Resend delivery screenshot: `resend-screen-shot.png`.
+
 ## Next steps
 
 1. **Seyeon approval** — confirm photography and Hailo-8L attach wording for US web use
 2. **Analytics** — Plausible or GA4
 3. **Commerce** — Stripe B2B quotes or Shopify Hydrogen when ready
 4. **Blog / R&D lab** — MDX under `content/blog/` (see `content/mdx-placeholder.md`)
-5. **Deploy** — Vercel with the env vars above and both apex + www domains
 
 ## License
 
