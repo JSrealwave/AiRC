@@ -1,4 +1,4 @@
-# AiRC — Active Image Recognition Command
+# AiRC — Active Image Recognition Corporation
 
 **Edge AI camera modules for tolling, ITS, and PTZ platforms.**
 
@@ -75,15 +75,17 @@ components/          # UI, layout, marketing, products, contact
 data/products.ts     # Official Seyeon SKUs — edit here for catalog changes
 content/             # Vertical solution copy (+ MDX blog placeholder)
 lib/                 # Site config, metadata, validations, structured data
+public/brand/        # Favicon/lockup/OG exports
 public/products/     # Seyeon partner photography
 public/resources/    # Family datasheet PDF
-scripts/             # Datasheet generator
+logo/                # Brand masters (archive/ holds unused long lockups)
+scripts/             # Datasheet + brand export generators
 ```
 
 ## Identity
 
 - **Brand:** AiRC
-- **Legal name:** Active Image Recognition Command
+- **Legal name:** Active Image Recognition Corporation
 - **Canonical URL:** https://www.activeimagerecognition.com
 - **Apex:** https://activeimagerecognition.com redirects to www (`next.config.ts` host redirect; also set both hostnames on Vercel)
 - **Email:** sales@activeimagerecognition.com
@@ -112,4 +114,4 @@ Never commit `.env.local` or a real `re_` key. Copy `.env.example` and fill `RES
 
 ## License
 
-Proprietary — AiRC / Active Image Recognition Command.
+Proprietary — AiRC / Active Image Recognition Corporation.

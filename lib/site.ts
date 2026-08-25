@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "AiRC",
-  legalName: "Active Image Recognition Command",
+  legalName: "Active Image Recognition Corporation",
   tagline: "Edge AI camera modules for tolling, ITS, and PTZ platforms",
   description:
     "Deployment-ready embedded AI camera modules powered by Seyeon FlexWATCH and Hailo-8L. Add advanced on-device AI to your existing PTZ or roadway cameras without a full redesign.",

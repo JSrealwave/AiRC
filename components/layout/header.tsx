@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Menu } from "lucide-react";
@@ -12,7 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { navLinks, siteConfig } from "@/lib/site";
+import { navLinks } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -21,18 +22,16 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-primary text-sm font-bold text-primary-foreground">
-            Ai
-          </span>
-          <div className="leading-tight">
-            <span className="block text-sm font-semibold tracking-tight">
-              {siteConfig.name}
-            </span>
-            <span className="hidden text-xs text-muted-foreground sm:block">
-              Edge AI Camera Modules
-            </span>
-          </div>
+        <Link href="/" className="flex items-center" aria-label="AiRC home">
+          <Image
+            src="/brand/logo.png"
+            alt="AiRC"
+            width={204}
+            height={80}
+            priority
+            sizes="140px"
+            className="h-8 w-auto md:h-[32px]"
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex" aria-label="Main">
@@ -68,7 +67,16 @@ export function Header() {
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px]">
             <SheetHeader>
-              <SheetTitle>{siteConfig.name}</SheetTitle>
+              <SheetTitle>
+                <Image
+                  src="/brand/logo.png"
+                  alt="AiRC"
+                  width={204}
+                  height={80}
+                  sizes="140px"
+                  className="h-8 w-auto"
+                />
+              </SheetTitle>
             </SheetHeader>
             <nav className="mt-6 flex flex-col gap-4" aria-label="Mobile">
               {navLinks.map((link) => (

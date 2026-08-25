@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { Separator } from "@/components/ui/separator";
@@ -11,29 +12,18 @@ export function Footer() {
       <Container className="py-12">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <p className="text-lg font-semibold">
-              {siteConfig.name} — {siteConfig.legalName}
-            </p>
-            <p className="mt-2 max-w-md text-sm text-muted-foreground">
+            <Link href="/" className="inline-flex items-center gap-2">
+              <Image
+                src="/brand/bug.png"
+                alt=""
+                width={32}
+                height={32}
+                className="size-7"
+              />
+              <span className="text-lg font-semibold">{siteConfig.name}</span>
+            </Link>
+            <p className="mt-3 max-w-md text-sm text-muted-foreground">
               {siteConfig.description}
-            </p>
-            <p className="mt-4 text-sm text-muted-foreground">
-              {formatAddressLine()}
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              <a
-                href={`tel:${siteConfig.phoneE164}`}
-                className="hover:text-foreground"
-              >
-                {siteConfig.phoneDisplay}
-              </a>
-              {" · "}
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="hover:text-foreground"
-              >
-                {siteConfig.email}
-              </a>
             </p>
             <p className="mt-4 text-xs text-muted-foreground">
               Powered by {siteConfig.partner} · NDAA-free SoC options · ONVIF
@@ -87,11 +77,18 @@ export function Footer() {
           </div>
         </div>
         <Separator className="my-8" />
-        <div className="flex flex-col gap-2 text-xs text-muted-foreground sm:flex-row sm:justify-between">
+        <div className="space-y-1 text-xs text-muted-foreground">
+          <p>© {year} {siteConfig.legalName}</p>
+          <p>{formatAddressLine()}</p>
           <p>
-            © {year} {siteConfig.legalName}. All rights reserved.
+            <a href={`tel:${siteConfig.phoneE164}`} className="hover:text-foreground">
+              {siteConfig.phoneDisplay}
+            </a>
+            {" · "}
+            <a href={`mailto:${siteConfig.email}`} className="hover:text-foreground">
+              {siteConfig.email}
+            </a>
           </p>
-          <p>{siteConfig.address.locationShort}</p>
         </div>
       </Container>
     </footer>

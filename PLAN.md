@@ -2,7 +2,7 @@
 
 ## Understanding
 
-**AiRC** (Active Image Recognition Command) is launching a Phase 1 (2026) B2B marketing + quote-request platform for embedded AI camera modules and edge AI cameras, powered by the **Seyeon Tech FlexWATCH** partnership and **Hailo-8L** acceleration.
+**AiRC** (Active Image Recognition Corporation) is launching a Phase 1 (2026) B2B marketing + quote-request platform for embedded AI camera modules and edge AI cameras, powered by the **Seyeon Tech FlexWATCH** partnership and **Hailo-8L** acceleration.
 
 **Primary buyers:** Toll/ETC operators, ITS integrators, PTZ camera manufacturers (e.g., PIPS/Neology, Cohu, Transcore, Thales).
 
