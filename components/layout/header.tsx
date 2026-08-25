@@ -29,8 +29,8 @@ export function Header() {
             width={204}
             height={80}
             priority
-            sizes="140px"
-            className="h-8 w-auto md:h-[32px]"
+            sizes="180px"
+            className="h-10 w-auto md:h-11"
           />
         </Link>
 
@@ -73,8 +73,8 @@ export function Header() {
                   alt="AiRC"
                   width={204}
                   height={80}
-                  sizes="140px"
-                  className="h-8 w-auto"
+                  sizes="180px"
+                  className="h-10 w-auto"
                 />
               </SheetTitle>
             </SheetHeader>

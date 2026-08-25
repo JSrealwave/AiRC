@@ -12,15 +12,15 @@ export function Footer() {
       <Container className="py-12">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2">
+            <Link href="/" className="inline-flex items-center" aria-label="AiRC home">
               <Image
-                src="/brand/bug.png"
-                alt=""
-                width={32}
-                height={32}
-                className="size-7"
+                src="/brand/logo.png"
+                alt="AiRC"
+                width={204}
+                height={80}
+                sizes="180px"
+                className="h-10 w-auto"
               />
-              <span className="text-lg font-semibold">{siteConfig.name}</span>
             </Link>
             <p className="mt-3 max-w-md text-sm text-muted-foreground">
               {siteConfig.description}

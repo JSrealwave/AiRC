@@ -26,7 +26,7 @@ export default function AboutPage() {
       </div>
 
       <div className="py-16">
-        <Container className="max-w-3xl space-y-6 text-muted-foreground">
+        <Container className="space-y-6 text-muted-foreground">
           <p>
             <strong className="text-foreground">{siteConfig.legalName}</strong>{" "}
             (AiRC) is building the next generation of AI-native proactive physical
