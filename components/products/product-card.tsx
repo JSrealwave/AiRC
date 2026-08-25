@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Cpu } from "lucide-react";
 import type { Product } from "@/data/products";
@@ -15,7 +16,19 @@ import { cn } from "@/lib/utils";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <Card className="flex h-full flex-col border-border/80 bg-card/50 transition-shadow hover:shadow-md">
+    <Card className="flex h-full flex-col overflow-hidden border-border/80 bg-card/50 pt-0 transition-shadow hover:shadow-md">
+      <Link
+        href={`/products/${product.slug}`}
+        className="relative block aspect-[16/10] bg-[#5d7a80]"
+      >
+        <Image
+          src={product.image}
+          alt={product.imageAlt}
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-contain p-2"
+        />
+      </Link>
       <CardHeader>
         <div className="flex flex-wrap items-center gap-2">
           {product.hailo && (
@@ -28,16 +41,17 @@ export function ProductCard({ product }: { product: Product }) {
             <Badge variant="outline">NDAA-free</Badge>
           )}
         </div>
-        <CardTitle className="mt-2 text-lg">
+        <CardTitle className="mt-2 font-mono text-base tracking-tight">
           <Link href={`/products/${product.slug}`} className="hover:text-[var(--brand-accent)]">
             {product.name}
           </Link>
         </CardTitle>
-        <CardDescription>{product.shortDescription}</CardDescription>
+        <CardDescription>{product.title}</CardDescription>
       </CardHeader>
       <CardContent className="flex-1">
         <p className="text-sm text-muted-foreground">
-          {product.formFactor} · {product.resolution}
+          {product.formFactor} · {product.resolution} ·{" "}
+          {product.shutter === "global" ? "Global shutter" : "Rolling shutter"}
         </p>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {product.idealFor.slice(0, 3).map((tag) => (

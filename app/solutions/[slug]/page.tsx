@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/container";
@@ -38,8 +39,19 @@ export default async function SolutionDetailPage({ params }: PageProps) {
 
   return (
     <>
-      <div className="border-b border-border/60 bg-[var(--brand-navy)] py-16">
-        <Container>
+      <div className="relative overflow-hidden border-b border-border/60 bg-[var(--brand-navy)]">
+        <div className="absolute inset-0">
+          <Image
+            src={vertical.image}
+            alt={vertical.imageAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-navy)] via-[var(--brand-navy)]/85 to-[var(--brand-navy)]/50" />
+        </div>
+        <Container className="relative py-16">
           <Link
             href="/solutions"
             className="text-sm text-slate-400 hover:text-white"

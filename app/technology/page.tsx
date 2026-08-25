@@ -1,8 +1,13 @@
+import Link from "next/link";
 import { Container } from "@/components/layout/container";
+import { ArchitectureDiagram } from "@/components/marketing/architecture-diagram";
 import { CTASection } from "@/components/marketing/cta-section";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { TrustBadges } from "@/components/marketing/trust-badges";
+import { FAMILY_DATASHEET } from "@/data/products";
 import { createMetadata } from "@/lib/metadata";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export const metadata = createMetadata({
   title: "Technology",
@@ -30,7 +35,7 @@ const sections = [
   },
   {
     title: "Integration without redesign",
-    body: "BT1120, LVDS, and YUV inputs connect to existing PTZ blocks, thermal channels, and multi-sensor gateways. ONVIF Profile S, T, and M preserve interoperability with incumbent VMS platforms.",
+    body: "BT1120, LVDS, and YUV inputs connect to existing PTZ blocks and multi-sensor gateways. ONVIF Profile S, T, and M preserve interoperability with incumbent VMS platforms. Zoom-block and thermal SKUs are held until Seyeon confirms them.",
   },
 ];
 
@@ -46,6 +51,18 @@ export default function TechnologyPage() {
             Technical differentiation for buyers who evaluate silicon, SDK maturity,
             and integration risk—not marketing claims.
           </p>
+          <Link
+            href={FAMILY_DATASHEET}
+            className={cn(
+              buttonVariants(),
+              "mt-6 bg-[var(--brand-accent)] hover:bg-[var(--brand-accent)]/90",
+            )}
+          >
+            Family datasheet (PDF)
+          </Link>
+          <div className="mt-10">
+            <ArchitectureDiagram />
+          </div>
         </Container>
       </div>
 

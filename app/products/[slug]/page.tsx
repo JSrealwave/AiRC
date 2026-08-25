@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/container";
@@ -52,15 +53,35 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
         <div className="grid gap-10 lg:grid-cols-3">
           <div className="lg:col-span-2">
+            <div className="relative mb-8 aspect-[16/10] overflow-hidden rounded-xl bg-[#5d7a80]">
+              <Image
+                src={product.image}
+                alt={product.imageAlt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className="object-contain p-4"
+              />
+            </div>
             <div className="flex flex-wrap gap-2">
               {product.hailo && <Badge>Hailo-8L</Badge>}
               {product.ndaaCompliant && <Badge variant="outline">NDAA-free</Badge>}
               <Badge variant="secondary">{product.resolution}</Badge>
+              <Badge variant="outline">
+                {product.shutter === "global" ? "Global shutter" : "Rolling shutter"}
+              </Badge>
             </div>
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight">
+            <h1 className="mt-4 font-mono text-3xl font-semibold tracking-tight">
               {product.name}
             </h1>
-            <p className="mt-2 text-sm text-muted-foreground">SKU: {product.sku}</p>
+            <p className="mt-2 text-lg text-foreground/90">{product.title}</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Seyeon FlexWATCH
+              <span className="mx-2 text-border">·</span>
+              {product.shutter === "global" ? "Global shutter" : "Rolling shutter"}
+              <span className="mx-2 text-border">·</span>
+              {product.formClass === "finished" ? "Finished camera" : "Module / board"}
+            </p>
             <p className="mt-6 text-muted-foreground">{product.description}</p>
 
             <h2 className="mt-10 text-lg font-semibold">Highlights</h2>
@@ -98,6 +119,12 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 className={cn(buttonVariants({ variant: "outline" }), "w-full")}
               >
                 Integration Support
+              </Link>
+              <Link
+                href={product.datasheetHref}
+                className={cn(buttonVariants({ variant: "ghost" }), "w-full")}
+              >
+                Family datasheet (PDF)
               </Link>
             </div>
           </aside>

@@ -3,6 +3,8 @@ export interface VerticalSolution {
   title: string;
   headline: string;
   summary: string;
+  image: string;
+  imageAlt: string;
   challenges: string[];
   capabilities: string[];
   idealProducts: string[];
@@ -14,6 +16,8 @@ export const verticals: VerticalSolution[] = [
     slug: "toll-roadway",
     title: "Toll Road & Roadway Intelligence",
     headline: "Enhance LPR/ANPR and lane analytics without replacing your entire camera stack",
+    image: "/solutions/toll-roadway.jpg",
+    imageAlt: "Multi-lane highway toll plaza with overhead camera gantries",
     summary:
       "AiRC modules help toll operators and ETC integrators add vehicle classification, tamper detection, and multi-model on-device inference to proven lane hardware—optimized for high-speed capture and harsh outdoor environments.",
     challenges: [
@@ -27,17 +31,15 @@ export const verticals: VerticalSolution[] = [
       "BT1120/LVDS integration with existing lane optics",
       "Sony global shutter options for high-speed free-flow ETC",
     ],
-    idealProducts: [
-      "flexwatch-h8l-2mp-module",
-      "flexwatch-8mp-roadway",
-      "flexwatch-h8l-5mp-ptz-core",
-    ],
+    idealProducts: ["fwc-ex2-0234", "fw7300-gkn", "fwc-ex1-565"],
     targetAccounts: ["PIPS / Neology", "Transcore", "Regional toll authorities"],
   },
   {
     slug: "ptz-manufacturers",
     title: "PTZ Camera Manufacturers",
     headline: "Embed advanced edge AI into your PTZ lineup—keep your mechanics, upgrade your intelligence",
+    image: "/solutions/ptz-manufacturers.jpg",
+    imageAlt: "Industrial pan-tilt-zoom camera mounted on a roadway pole",
     summary:
       "For OEMs building pan-tilt-zoom platforms, FlexWATCH modules provide a credible path to behavior analytics, improved detection, and reduced false alarms via flexible video inputs and ONVIF Profile M metadata.",
     challenges: [
@@ -51,17 +53,15 @@ export const verticals: VerticalSolution[] = [
       "FlexWATCH Open AI SDK for proprietary model deployment",
       "ONVIF Profile S/T/M for VMS and PSIM compatibility",
     ],
-    idealProducts: [
-      "flexwatch-h8l-5mp-ptz-core",
-      "flexwatch-h8l-2mp-module",
-      "flexwatch-12mp-multi-sensor",
-    ],
+    idealProducts: ["fwm-ex1-l2m", "fw1172-a3t55", "fw7904-pxm"],
     targetAccounts: ["Cohu", "PTZ OEMs", "Security camera integrators"],
   },
   {
     slug: "its-smart-city",
     title: "ITS & Smart City Integrators",
     headline: "Intersection-scale edge AI with modular hardware and deployment-ready SDKs",
+    image: "/solutions/its-smart-city.jpg",
+    imageAlt: "Urban intersection with traffic cameras and sensors on a mast arm",
     summary:
       "ITS firms and smart city integrators use AiRC to deliver multi-sensor analytics, corridor monitoring, and V2X-adjacent vision workloads on NDAA-free, ONVIF-compliant hardware with industrial temperature ratings.",
     challenges: [
@@ -75,11 +75,7 @@ export const verticals: VerticalSolution[] = [
       "Hailo-8L low-power edge inference (~1.5W)",
       "Standards-based ONVIF for municipal procurement",
     ],
-    idealProducts: [
-      "flexwatch-12mp-multi-sensor",
-      "flexwatch-8mp-roadway",
-      "flexwatch-dome-4mp",
-    ],
+    idealProducts: ["fwc-ex1-412", "fw7300-gkn", "fw7511-pem"],
     targetAccounts: ["Thales", "ITS integrators", "Municipal traffic agencies"],
   },
 ];

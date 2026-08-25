@@ -55,6 +55,29 @@ export default function AboutPage() {
             <li>Intelligent Transportation Systems (ITS) firms and smart city integrators</li>
             <li>Pan-Tilt-Zoom (PTZ) camera manufacturers and security OEMs</li>
           </ul>
+          <h2 className="pt-4 text-lg font-semibold text-foreground">
+            Contact
+          </h2>
+          <p>
+            {siteConfig.name} — {siteConfig.legalName}
+            <br />
+            {siteConfig.address.line1}, {siteConfig.address.city},{" "}
+            {siteConfig.address.region} {siteConfig.address.postal}
+            <br />
+            <a
+              href={`tel:${siteConfig.phoneE164}`}
+              className="text-[var(--brand-accent)] hover:underline"
+            >
+              {siteConfig.phoneDisplay}
+            </a>
+            {" · "}
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="text-[var(--brand-accent)] hover:underline"
+            >
+              {siteConfig.email}
+            </a>
+          </p>
         </Container>
       </div>
 

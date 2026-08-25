@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { Separator } from "@/components/ui/separator";
-import { navLinks, siteConfig } from "@/lib/site";
+import { formatAddressLine, navLinks, siteConfig } from "@/lib/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -11,9 +11,29 @@ export function Footer() {
       <Container className="py-12">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <p className="text-lg font-semibold">{siteConfig.name}</p>
+            <p className="text-lg font-semibold">
+              {siteConfig.name} — {siteConfig.legalName}
+            </p>
             <p className="mt-2 max-w-md text-sm text-muted-foreground">
               {siteConfig.description}
+            </p>
+            <p className="mt-4 text-sm text-muted-foreground">
+              {formatAddressLine()}
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              <a
+                href={`tel:${siteConfig.phoneE164}`}
+                className="hover:text-foreground"
+              >
+                {siteConfig.phoneDisplay}
+              </a>
+              {" · "}
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="hover:text-foreground"
+              >
+                {siteConfig.email}
+              </a>
             </p>
             <p className="mt-4 text-xs text-muted-foreground">
               Powered by {siteConfig.partner} · NDAA-free SoC options · ONVIF
@@ -39,6 +59,16 @@ export function Footer() {
             <p className="text-sm font-medium">Solutions</p>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
               <li>
+                <Link href="/resources" className="hover:text-foreground">
+                  Datasheet & notes
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources/toll-anpr" className="hover:text-foreground">
+                  Toll / ANPR note
+                </Link>
+              </li>
+              <li>
                 <Link href="/solutions/toll-roadway" className="hover:text-foreground">
                   Toll & Roadway
                 </Link>
@@ -61,10 +91,7 @@ export function Footer() {
           <p>
             © {year} {siteConfig.legalName}. All rights reserved.
           </p>
-          <p>
-            B2B quote flow · Headless commerce placeholder (Stripe / Shopify
-            Hydrogen)
-          </p>
+          <p>{siteConfig.address.locationShort}</p>
         </div>
       </Container>
     </footer>

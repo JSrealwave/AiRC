@@ -8,8 +8,8 @@ AiRC is building the next generation of AI-native proactive physical security—
 
 Launch a high-trust **B2B marketing + quote-request platform** for:
 
-- Embedded AI camera modules
-- Intelligent edge AI cameras (private-label / powered by **Seyeon Tech FlexWATCH** + **Hailo-8L**)
+- Official **Seyeon Tech FlexWATCH** IP modules, LVDS boards, and finished cameras
+- **Hailo-8L** on-device AI, quoted and integrated by AiRC (not a factory option on every Seyeon SKU)
 
 Checkout remains **Request Quote** in Phase 1. Headless commerce (Stripe / Shopify Hydrogen) is planned for a later phase.
 
@@ -17,19 +17,21 @@ Checkout remains **Request Quote** in Phase 1. Headless commerce (Stripe / Shopi
 
 AiRC distributes and integrates **Seyeon FlexWATCH** hardware with:
 
+- **Official model numbers** — launch catalog of 12 SKUs (e.g. FWC-EX2-0234, FW7300-GKN, FWM-EX1-L2M)
 - **FlexWATCH Open AI SDK** — five-step path to run customer proprietary models on-device
-- **Hailo-8L** — 13 TOPS, ~1.5W, multi-model, industrial temperature
+- **Hailo-8L** — 13 TOPS, ~1.5W, multi-model, industrial temperature (AiRC attach)
 - **NDAA-free SoCs** — Eyenix, Ambarella, Hailo
-- **2 MP – 12 MP** resolutions, extensive Sony sensor support (rolling + global shutter)
-- **20+ Lego-style** compact form factors + bullet/dome/PTZ finished cameras
+- **2 MP – 12 MP** — rolling and global shutter, as listed per SKU
 - **ONVIF** Profile S / T / M
-- **Flexible inputs** — BT1120, LVDS, YUV for PTZ blocks, thermal, multi-sensor
+- **Flexible inputs** — BT1120, LVDS, YUV for PTZ blocks and multi-sensor gateways
+
+Zoom-block and thermal cameras are **out of catalog** until Seyeon confirms them.
 
 Seyeon's CEO has confirmed strongest commercial traction with:
 
-1. Toll road operators & ETC companies  
-2. ITS (Intelligent Transportation Systems) firms  
-3. Pan-Tilt-Zoom (PTZ) camera manufacturers  
+1. Toll road operators & ETC companies
+2. ITS (Intelligent Transportation Systems) firms
+3. Pan-Tilt-Zoom (PTZ) camera manufacturers
 
 **Target accounts:** PIPS/Neology, Cohu, Transcore, Thales, and similar OEMs/integrators.
 
@@ -45,9 +47,10 @@ Roots in computer vision since **1997** (Active Image Recognition Technology). M
 - **TypeScript** (strict)
 - **Tailwind CSS v4** + **shadcn/ui**
 - **Lucide** icons
-- Product catalog: `data/products.ts`
+- Product catalog: `data/products.ts` (filterable by resolution, shutter, form)
 - Vertical content: `content/verticals.ts`
 - Contact forms: Server Actions (`app/actions/contact.ts`)
+- Family datasheet: `public/resources/airc-flexwatch-edge-ai-datasheet.pdf` (regenerate with `scripts/generate-datasheet.py`)
 
 ## Getting started
 
@@ -67,31 +70,46 @@ npm run lint    # ESLint
 ## Project structure
 
 ```
-app/              # Routes (home, products, solutions, technology, about, contact)
-components/       # UI, layout, marketing, products, contact
-data/             # Product catalog (edit here for new SKUs)
-content/          # Vertical solution copy (+ MDX blog placeholder)
-lib/              # Site config, metadata, validations, structured data
-public/           # Static assets (add product photos here)
+app/                 # Routes (home, products, solutions, technology, resources, about, contact)
+components/          # UI, layout, marketing, products, contact
+data/products.ts     # Official Seyeon SKUs — edit here for catalog changes
+content/             # Vertical solution copy (+ MDX blog placeholder)
+lib/                 # Site config, metadata, validations, structured data
+public/products/     # Seyeon partner photography
+public/resources/    # Family datasheet PDF
+scripts/             # Datasheet generator
 ```
+
+## Identity
+
+- **Brand:** AiRC
+- **Legal name:** Active Image Recognition Command
+- **Canonical URL:** https://www.activeimagerecognition.com
+- **Apex:** https://activeimagerecognition.com redirects to www (`next.config.ts` host redirect; also set both hostnames on Vercel)
+- **Email:** sales@activeimagerecognition.com
+- **Phone:** (858) 876-2276
+- **Address:** 5857 Owens Avenue, Suite 300, Carlsbad, CA 92008
 
 ## Environment variables
 
 | Variable | Purpose |
 |----------|---------|
-| `NEXT_PUBLIC_SITE_URL` | Canonical URL for SEO / JSON-LD |
-| `CONTACT_EMAIL` | Displayed on contact page |
-| `CONTACT_WEBHOOK_URL` | Optional POST endpoint for form submissions |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL (https://www.activeimagerecognition.com) |
+| `CONTACT_EMAIL` | Inbox and displayed email (sales@activeimagerecognition.com) |
+| `RESEND_API_KEY` | Server only — Resend API key |
+| `RESEND_FROM` | Verified Resend from address (`AiRC <sales@activeimagerecognition.com>`) |
+| `CONTACT_WEBHOOK_URL` | Optional CRM/webhook POST after a successful email |
+
+Never commit `.env.local` or a real `re_` key. Copy `.env.example` and fill `RESEND_API_KEY` locally and on Vercel.
 
 ## Next steps
 
-1. **Content** — Replace placeholder copy with Seyeon-approved specs and photography  
-2. **Forms** — Wire `CONTACT_WEBHOOK_URL` to HubSpot, Resend, or CRM  
-3. **Analytics** — Plausible or GA4  
-4. **Commerce** — Stripe B2B quotes or Shopify Hydrogen when ready  
-5. **Blog / R&D lab** — MDX under `content/blog/` (see `content/mdx-placeholder.md`)  
-6. **Deploy** — Vercel or similar with production domain  
+1. **Seyeon approval** — confirm photography and Hailo-8L attach wording for US web use
+2. **Analytics** — Plausible or GA4
+3. **Commerce** — Stripe B2B quotes or Shopify Hydrogen when ready
+4. **Blog / R&D lab** — MDX under `content/blog/` (see `content/mdx-placeholder.md`)
+5. **Deploy** — Vercel with the env vars above and both apex + www domains
 
 ## License
 
-Proprietary — AiRC / Active Image Recognition Command Corporation.
+Proprietary — AiRC / Active Image Recognition Command.

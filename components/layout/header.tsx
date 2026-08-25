@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import { Container } from "@/components/layout/container";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -57,11 +57,14 @@ export function Header() {
         </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger className="md:hidden">
-            <Button variant="ghost" size="icon" type="button">
-              <Menu className="size-5" />
-              <span className="sr-only">Open menu</span>
-            </Button>
+          <SheetTrigger
+            className={cn(
+              buttonVariants({ variant: "ghost", size: "icon" }),
+              "md:hidden",
+            )}
+          >
+            <Menu className="size-5" />
+            <span className="sr-only">Open menu</span>
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px]">
             <SheetHeader>
