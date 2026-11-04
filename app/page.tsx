@@ -4,10 +4,12 @@ import { ArrowRight, FileText, Layers, Zap } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { ArchitectureDiagram } from "@/components/marketing/architecture-diagram";
 import { CTASection } from "@/components/marketing/cta-section";
+import { AdjacentUses } from "@/components/marketing/adjacent-uses";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { SolutionCard } from "@/components/marketing/solution-card";
 import { TrustBadges } from "@/components/marketing/trust-badges";
 import { ProductCard } from "@/components/products/product-card";
+import { homepageAdjacentUses } from "@/content/adjacent";
 import { verticals } from "@/content/verticals";
 import { FAMILY_DATASHEET, getFeaturedProducts, getProductBySlug } from "@/data/products";
 import { buttonVariants } from "@/components/ui/button";
@@ -28,12 +30,12 @@ export default function HomePage() {
                 Seyeon FlexWATCH · Hailo-8L · NDAA-free · Since 1997
               </p>
               <h1 className="max-w-xl text-3xl font-semibold tracking-tight text-white sm:text-5xl sm:leading-tight">
-                Run your models on official FlexWATCH hardware
+                Deployment-ready embedded AI camera modules
               </h1>
               <p className="mt-6 max-w-xl text-base text-slate-300 sm:text-lg">
-                Real Seyeon model numbers for toll, ITS, and PTZ OEMs. Add
-                Hailo-8L on-device AI to the camera you already know how to
-                mount — no full hardware redesign.
+                Powered by Seyeon FlexWATCH and Hailo-8L. Add advanced
+                on-device AI to your existing PTZ, roadway, or embedded designs
+                without a full redesign. Nearly 30 years of IP video heritage.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
@@ -128,6 +130,19 @@ export default function HomePage() {
             {verticals.map((v) => (
               <SolutionCard key={v.slug} vertical={v} compact />
             ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-border/60 bg-muted/10 py-12">
+        <Container>
+          <SectionHeading
+            eyebrow="Also used in"
+            title="Adjacent applications"
+            description="The same embedded RGB IP camera modules and board-level AI camera modules, specified where an OEM needs edge AI without a full mechanical redesign. Toll, ITS, and PTZ remain the primary fit."
+          />
+          <div className="mt-8">
+            <AdjacentUses items={homepageAdjacentUses} />
           </div>
         </Container>
       </section>

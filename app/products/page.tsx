@@ -9,7 +9,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata = createMetadata({
   title: "Products",
   description:
-    "Official Seyeon FlexWATCH modules and finished cameras — filter by resolution, shutter, and form factor. Hailo-8L integration quoted through AiRC.",
+    "Official Seyeon FlexWATCH embedded RGB IP camera modules and board-level AI camera modules, plus finished cameras. Filter by resolution, shutter, form, and toll, ITS, PTZ, industrial, robotics, or medical-adjacent use.",
   path: "/products",
 });
 
@@ -20,8 +20,14 @@ export default function ProductsPage() {
         <SectionHeading
           eyebrow="Seyeon FlexWATCH catalog"
           title="Official modules and finished cameras"
-          description="These are real Seyeon model numbers from the FlexWATCH IP-module and finished-camera lines. Hailo-8L (13 TOPS) is quoted as an AiRC integration — not a Seyeon list option on every SKU."
+          description="Real Seyeon model numbers: embedded RGB IP camera modules and board-level color CMOS IP modules from the FlexWATCH line, plus finished cameras. Hailo-8L (13 TOPS) is quoted as an AiRC integration — not a Seyeon list option on every SKU."
         />
+        <p className="mt-4 max-w-3xl text-sm text-muted-foreground">
+          Toll, ITS, and PTZ stay the primary catalog fit. Optional Industrial,
+          Robotics, and Medical-adjacent tags mark where the same board-level AI
+          camera modules are also specified — the module inside an OEM design,
+          not a finished robot or medical device.
+        </p>
         <p className="mt-4 text-sm text-muted-foreground">
           <Link
             href={FAMILY_DATASHEET}

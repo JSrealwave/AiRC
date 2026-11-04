@@ -6,7 +6,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata = createMetadata({
   title: "About",
   description:
-    "AiRC heritage since 1997 in computer vision, now focused on edge AI for tolling, ITS, and PTZ platforms.",
+    "AiRC heritage since 1997 in computer vision. Embedded RGB IP camera modules and board-level AI camera modules for tolling, ITS, and PTZ, also specified by industrial, robotics, and medical-adjacent OEMs.",
   path: "/about",
 });
 
@@ -55,6 +55,11 @@ export default function AboutPage() {
             <li>Intelligent Transportation Systems (ITS) firms and smart city integrators</li>
             <li>Pan-Tilt-Zoom (PTZ) camera manufacturers and security OEMs</li>
           </ul>
+          <p>
+            The same embedded RGB IP camera modules and board-level AI camera
+            modules are also specified by industrial, robotics, and
+            medical-adjacent OEMs who need deployment-ready edge AI hardware.
+          </p>
           <h2 className="pt-4 text-lg font-semibold text-foreground">
             Contact
           </h2>

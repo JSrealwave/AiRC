@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/container";
 import { SpecTable } from "@/components/products/spec-table";
-import { getProductBySlug, products } from "@/data/products";
+import { getProductBySlug, isAdjacentMarketTag, products } from "@/data/products";
 import { createMetadata } from "@/lib/metadata";
 import { productJsonLd } from "@/lib/structured-data";
 import { Badge } from "@/components/ui/badge";
@@ -35,6 +35,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
   if (!product) notFound();
 
   const jsonLd = productJsonLd(product);
+  const primaryTags = product.idealFor.filter((tag) => !isAdjacentMarketTag(tag));
+  const adjacentTags = product.idealFor.filter(isAdjacentMarketTag);
 
   return (
     <div className="py-16">
@@ -93,12 +95,28 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
             <h2 className="mt-10 text-lg font-semibold">Ideal for</h2>
             <div className="mt-3 flex flex-wrap gap-2">
-              {product.idealFor.map((tag) => (
+              {primaryTags.map((tag) => (
                 <Badge key={tag} variant="outline">
                   {tag}
                 </Badge>
               ))}
             </div>
+            {adjacentTags.length > 0 && (
+              <>
+                <h2 className="mt-8 text-base font-semibold">Also specified for</h2>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {adjacentTags.map((tag) => (
+                    <Badge key={tag} variant="outline">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  These tags mean the module is specified inside that OEM system.
+                  AiRC does not supply a finished robot or medical device.
+                </p>
+              </>
+            )}
           </div>
 
           <aside className="rounded-xl border border-border/80 bg-card/50 p-6 lg:sticky lg:top-24 lg:self-start">

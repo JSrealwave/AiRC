@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 export const metadata = createMetadata({
   title: "Technology",
   description:
-    "Seyeon FlexWATCH Open AI SDK, Hailo-8L edge acceleration, NDAA-free SoCs, and flexible integration for toll, ITS, and PTZ.",
+    "Seyeon FlexWATCH Open AI SDK, Hailo-8L edge acceleration, and board-level AI camera modules for toll, ITS, and PTZ. The same embedded RGB IP modules are specified for industrial, robotics, and medical-adjacent OEM programs.",
   path: "/technology",
 });
 
@@ -92,6 +92,19 @@ export default function TechnologyPage() {
               </article>
             ))}
           </div>
+          <aside className="mt-10 rounded-xl border border-border/80 bg-muted/20 p-6">
+            <p className="text-xs font-medium uppercase tracking-wide text-[var(--brand-accent)]">
+              Also specified by
+            </p>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+              The same FlexWATCH + Hailo-8L modules and SDK path are used by OEMs
+              in industrial automation, robotics platforms, and medical/life-science
+              systems that require on-device inference, an NDAA-free supply chain,
+              and minimal mechanical redesign. These are embedded RGB IP camera
+              modules and board-level AI camera modules for those designs — not
+              finished robots or medical devices.
+            </p>
+          </aside>
         </Container>
       </section>
 

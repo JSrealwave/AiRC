@@ -4,7 +4,10 @@ import { useCallback, useMemo } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ProductCard } from "@/components/products/product-card";
 import {
+  applicationFilters,
   filterProducts,
+  tagForApplication,
+  type ApplicationFilter,
   type FormClass,
   type Product,
   type ResolutionClass,
@@ -12,7 +15,7 @@ import {
 } from "@/data/products";
 import { cn } from "@/lib/utils";
 
-type FilterKey = "resolution" | "shutter" | "form";
+type FilterKey = "resolution" | "shutter" | "form" | "use";
 
 const resolutionOptions: { value: "all" | ResolutionClass; label: string }[] = [
   { value: "all", label: "All MP" },
@@ -70,6 +73,10 @@ export function ProductCatalog({ products }: { products: Product[] }) {
     | ResolutionClass;
   const shutter = (searchParams.get("shutter") ?? "all") as "all" | ShutterType;
   const form = (searchParams.get("form") ?? "all") as "all" | FormClass;
+  const useParam = searchParams.get("use");
+  const use = (
+    useParam && tagForApplication(useParam) ? useParam : "all"
+  ) as "all" | ApplicationFilter;
 
   const setFilter = useCallback(
     (key: FilterKey, value: string) => {
@@ -87,11 +94,11 @@ export function ProductCatalog({ products }: { products: Product[] }) {
   }, [pathname, router]);
 
   const filtered = useMemo(
-    () => filterProducts(products, { resolution, shutter, form }),
-    [form, products, resolution, shutter],
+    () => filterProducts(products, { resolution, shutter, form, use }),
+    [form, products, resolution, shutter, use],
   );
 
-  const activeCount = [resolution, shutter, form].filter((v) => v !== "all").length;
+  const activeCount = [resolution, shutter, form, use].filter((v) => v !== "all").length;
 
   return (
     <div>
@@ -162,6 +169,42 @@ export function ProductCatalog({ products }: { products: Product[] }) {
             </div>
           </fieldset>
         </div>
+
+        <fieldset className="mt-4 border-t border-border/60 pt-4">
+          <legend className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            Application
+          </legend>
+          <div className="flex flex-wrap items-center gap-2">
+            <Chip active={use === "all"} onClick={() => setFilter("use", "all")}>
+              All
+            </Chip>
+            {applicationFilters
+              .filter((opt) => opt.group === "primary")
+              .map((opt) => (
+                <Chip
+                  key={opt.value}
+                  active={use === opt.value}
+                  onClick={() => setFilter("use", opt.value)}
+                >
+                  {opt.label}
+                </Chip>
+              ))}
+            <span className="px-1 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+              Also
+            </span>
+            {applicationFilters
+              .filter((opt) => opt.group === "adjacent")
+              .map((opt) => (
+                <Chip
+                  key={opt.value}
+                  active={use === opt.value}
+                  onClick={() => setFilter("use", opt.value)}
+                >
+                  {opt.label}
+                </Chip>
+              ))}
+          </div>
+        </fieldset>
       </div>
 
       {filtered.length === 0 ? (

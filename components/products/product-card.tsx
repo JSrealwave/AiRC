@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Cpu } from "lucide-react";
-import type { Product } from "@/data/products";
+import { isAdjacentMarketTag, type Product } from "@/data/products";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -15,6 +15,11 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function ProductCard({ product }: { product: Product }) {
+  const primaryTags = product.idealFor
+    .filter((tag) => !isAdjacentMarketTag(tag))
+    .slice(0, 3);
+  const adjacentTags = product.idealFor.filter(isAdjacentMarketTag);
+
   return (
     <Card className="flex h-full flex-col overflow-hidden border-border/80 bg-card/50 pt-0 transition-shadow hover:shadow-md">
       <Link
@@ -54,12 +59,28 @@ export function ProductCard({ product }: { product: Product }) {
           {product.shutter === "global" ? "Global shutter" : "Rolling shutter"}
         </p>
         <div className="mt-3 flex flex-wrap gap-1.5">
-          {product.idealFor.slice(0, 3).map((tag) => (
+          {primaryTags.map((tag) => (
             <Badge key={tag} variant="outline" className="text-xs font-normal">
               {tag}
             </Badge>
           ))}
         </div>
+        {adjacentTags.length > 0 && (
+          <div className="mt-2 flex flex-wrap items-center gap-1.5">
+            <span className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+              Also
+            </span>
+            {adjacentTags.map((tag) => (
+              <Badge
+                key={tag}
+                variant="outline"
+                className="text-[10px] font-normal text-muted-foreground"
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )}
       </CardContent>
       <CardFooter>
         <Link

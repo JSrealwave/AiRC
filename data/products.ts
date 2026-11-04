@@ -4,7 +4,38 @@ export type ProductTag =
   | "Multi-Sensor"
   | "ITS / Roadway"
   | "Low-Light"
-  | "Global Shutter";
+  | "Global Shutter"
+  | "Industrial"
+  | "Robotics"
+  | "Medical-adjacent";
+
+/** Secondary specification tags. Primary toll / ITS / PTZ tags stay first on each SKU. */
+export const adjacentMarketTags = [
+  "Industrial",
+  "Robotics",
+  "Medical-adjacent",
+] as const satisfies readonly ProductTag[];
+
+export type AdjacentMarketTag = (typeof adjacentMarketTags)[number];
+
+export function isAdjacentMarketTag(tag: ProductTag): tag is AdjacentMarketTag {
+  return (adjacentMarketTags as readonly string[]).includes(tag);
+}
+
+export const applicationFilters = [
+  { value: "toll", label: "Toll / ANPR", tag: "Tolling / ANPR", group: "primary" },
+  { value: "its", label: "ITS / Roadway", tag: "ITS / Roadway", group: "primary" },
+  { value: "ptz", label: "PTZ", tag: "PTZ Enhancement", group: "primary" },
+  { value: "industrial", label: "Industrial", tag: "Industrial", group: "adjacent" },
+  { value: "robotics", label: "Robotics", tag: "Robotics", group: "adjacent" },
+  { value: "medical", label: "Medical-adjacent", tag: "Medical-adjacent", group: "adjacent" },
+] as const;
+
+export type ApplicationFilter = (typeof applicationFilters)[number]["value"];
+
+export function tagForApplication(value: string): ProductTag | undefined {
+  return applicationFilters.find((filter) => filter.value === value)?.tag;
+}
 
 export type ResolutionClass = "2MP" | "5MP" | "8MP" | "12MP";
 export type ShutterType = "rolling" | "global";
@@ -67,7 +98,14 @@ export const products: Product[] = [
     hailo: true,
     ndaaCompliant: true,
     onvif: ["Profile S", "Profile T"],
-    idealFor: ["Tolling / ANPR", "ITS / Roadway", "Low-Light"],
+    idealFor: [
+      "Tolling / ANPR",
+      "ITS / Roadway",
+      "Low-Light",
+      "Industrial",
+      "Robotics",
+      "Medical-adjacent",
+    ],
     highlights: [
       "Official Seyeon 2MP rolling-shutter module (1-board)",
       "Eyenix SoC — NDAA-free supply path",
@@ -106,7 +144,14 @@ export const products: Product[] = [
     hailo: true,
     ndaaCompliant: true,
     onvif: ["Profile S", "Profile T"],
-    idealFor: ["Tolling / ANPR", "ITS / Roadway", "Global Shutter"],
+    idealFor: [
+      "Tolling / ANPR",
+      "ITS / Roadway",
+      "Global Shutter",
+      "Industrial",
+      "Robotics",
+      "Medical-adjacent",
+    ],
     featured: true,
     highlights: [
       "Global shutter at 2MP for high-speed lanes",
@@ -146,7 +191,7 @@ export const products: Product[] = [
     hailo: true,
     ndaaCompliant: true,
     onvif: ["Profile S", "Profile T"],
-    idealFor: ["Tolling / ANPR", "ITS / Roadway", "Global Shutter"],
+    idealFor: ["Tolling / ANPR", "ITS / Roadway", "Global Shutter", "Medical-adjacent"],
     highlights: [
       "5MP global shutter for wider lanes",
       "Eyenix + Hailo-8L integration path",
@@ -185,7 +230,7 @@ export const products: Product[] = [
     hailo: true,
     ndaaCompliant: true,
     onvif: ["Profile S", "Profile T", "Profile M"],
-    idealFor: ["Tolling / ANPR", "ITS / Roadway", "Global Shutter"],
+    idealFor: ["Tolling / ANPR", "ITS / Roadway", "Global Shutter", "Medical-adjacent"],
     highlights: [
       "8MP global shutter for plaza-scale FOV",
       "Metadata-ready ONVIF Profile M path",
@@ -224,7 +269,7 @@ export const products: Product[] = [
     hailo: true,
     ndaaCompliant: true,
     onvif: ["Profile S", "Profile T", "Profile M"],
-    idealFor: ["Multi-Sensor", "ITS / Roadway", "PTZ Enhancement"],
+    idealFor: ["Multi-Sensor", "ITS / Roadway", "PTZ Enhancement", "Industrial"],
     highlights: [
       "12MP for intersection and corridor overview",
       "Pairs with LVDS boards for multi-sensor builds",
@@ -263,7 +308,7 @@ export const products: Product[] = [
     hailo: true,
     ndaaCompliant: true,
     onvif: ["Profile S", "Profile T", "Profile M"],
-    idealFor: ["PTZ Enhancement", "Multi-Sensor"],
+    idealFor: ["PTZ Enhancement", "Multi-Sensor", "Industrial", "Robotics"],
     featured: true,
     highlights: [
       "LVDS input for existing PTZ / block cameras",
@@ -304,7 +349,7 @@ export const products: Product[] = [
     hailo: true,
     ndaaCompliant: true,
     onvif: ["Profile S", "Profile T", "Profile M"],
-    idealFor: ["PTZ Enhancement", "Multi-Sensor"],
+    idealFor: ["PTZ Enhancement", "Multi-Sensor", "Robotics"],
     highlights: [
       "Ambarella IP mainboard — NDAA-free path",
       "5MP class for PTZ and custom housings",
@@ -342,7 +387,7 @@ export const products: Product[] = [
     hailo: true,
     ndaaCompliant: true,
     onvif: ["Profile S", "Profile T", "Profile M"],
-    idealFor: ["PTZ Enhancement", "ITS / Roadway", "Multi-Sensor"],
+    idealFor: ["PTZ Enhancement", "ITS / Roadway", "Multi-Sensor", "Robotics"],
     highlights: [
       "8MP LVDS interface for 4K-class blocks",
       "PTZ OEM embed without new mechanics",
@@ -460,7 +505,7 @@ export const products: Product[] = [
     hailo: true,
     ndaaCompliant: true,
     onvif: ["Profile S", "Profile T"],
-    idealFor: ["ITS / Roadway", "Low-Light", "PTZ Enhancement"],
+    idealFor: ["ITS / Roadway", "Low-Light", "PTZ Enhancement", "Industrial"],
     highlights: [
       "Finished dome — faster time-to-field",
       "5MP autofocus, vandal-resistant housing",
@@ -529,8 +574,11 @@ export function filterProducts(
     resolution?: ResolutionClass | "all";
     shutter?: ShutterType | "all";
     form?: FormClass | "all";
+    use?: ApplicationFilter | "all";
   },
 ): Product[] {
+  const useTag = filters.use && filters.use !== "all" ? tagForApplication(filters.use) : undefined;
+
   return list.filter((p) => {
     if (filters.resolution && filters.resolution !== "all" && p.resolutionClass !== filters.resolution) {
       return false;
@@ -539,6 +587,9 @@ export function filterProducts(
       return false;
     }
     if (filters.form && filters.form !== "all" && p.formClass !== filters.form) {
+      return false;
+    }
+    if (useTag && !p.idealFor.includes(useTag)) {
       return false;
     }
     return true;
