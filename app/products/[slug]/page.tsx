@@ -3,7 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/container";
 import { SpecTable } from "@/components/products/spec-table";
-import { getProductBySlug, isAdjacentMarketTag, products } from "@/data/products";
+import {
+  getProductBySlug,
+  isAdjacentMarketTag,
+  products,
+  type Product,
+} from "@/data/products";
 import { createMetadata } from "@/lib/metadata";
 import { productJsonLd } from "@/lib/structured-data";
 import { Badge } from "@/components/ui/badge";
@@ -18,12 +23,21 @@ export async function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
 
+function productMetaTitle(product: Product): string {
+  const isIpModule = /ip module/i.test(product.formFactor);
+  if (isIpModule) {
+    const megapixels = product.resolution.replace(/\s+/g, "");
+    return `${product.name} ${megapixels} IP Camera Module`;
+  }
+  return `${product.name} ${product.title}`;
+}
+
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const product = getProductBySlug(slug);
   if (!product) return {};
   return createMetadata({
-    title: product.name,
+    title: productMetaTitle(product),
     description: product.shortDescription,
     path: `/products/${slug}`,
   });

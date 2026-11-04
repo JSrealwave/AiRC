@@ -7,9 +7,9 @@ import { verticals } from "@/content/verticals";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Solutions",
+  title: "Toll, PTZ & ITS Edge AI Solutions",
   description:
-    "Edge AI for toll road operators, PTZ manufacturers, and ITS integrators. Embedded RGB IP camera modules and board-level AI camera modules, with light notes for industrial, robotics, and medical-adjacent OEMs.",
+    "Edge AI for toll, PTZ, and ITS. Embedded RGB IP camera modules and board-level AI camera modules, with ONVIF and Hailo-8L.",
   path: "/solutions",
 });
 
@@ -17,11 +17,18 @@ export default function SolutionsPage() {
   return (
     <div className="py-16">
       <Container>
-        <SectionHeading
-          eyebrow="Verticals"
-          title="Solutions by industry"
-          description="Purpose-built integration paths for the markets where Seyeon FlexWATCH has the strongest commercial traction."
-        />
+        <div>
+          <p className="mb-2 text-sm font-medium tracking-wide text-[var(--brand-accent)] uppercase">
+            Verticals
+          </p>
+          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            Solutions by industry
+          </h1>
+          <p className="mt-3 text-muted-foreground">
+            Purpose-built integration paths to add edge AI without a full
+            redesign.
+          </p>
+        </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {verticals.map((v) => (
             <SolutionCard key={v.slug} vertical={v} />

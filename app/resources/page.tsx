@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { FileText, NotebookPen } from "lucide-react";
 import { Container } from "@/components/layout/container";
-import { SectionHeading } from "@/components/marketing/section-heading";
 import { FAMILY_DATASHEET } from "@/data/products";
 import { createMetadata } from "@/lib/metadata";
 import { buttonVariants } from "@/components/ui/button";
@@ -21,7 +20,7 @@ const items = [
     icon: FileText,
     eyebrow: "PDF · 2 pages",
     title: "Edge AI module family datasheet",
-    body: "Official Seyeon SKUs in this launch catalog, Hailo-8L attach, inputs, and ONVIF. Send it ahead of a quote call.",
+    body: "Phase 1 catalog of embedded RGB IP camera modules and finished cameras, with Hailo-8L attach options, inputs, and ONVIF details.",
     cta: "Download PDF",
   },
   {
@@ -39,11 +38,19 @@ export default function ResourcesPage() {
   return (
     <div className="py-16">
       <Container>
-        <SectionHeading
-          eyebrow="Resources"
-          title="Datasheets and application notes"
-          description="Engineering-led material for toll, ITS, and PTZ buyers. Zoom-block and thermal SKUs are held until Seyeon confirms them."
-        />
+        <div>
+          <p className="mb-2 text-sm font-medium tracking-wide text-[var(--brand-accent)] uppercase">
+            Resources
+          </p>
+          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            Datasheets and application notes
+          </h1>
+          <p className="mt-3 text-muted-foreground">
+            Engineering-led material for toll, ITS, and PTZ buyers. Datasheets
+            and notes cover the Phase 1 catalog with project-specific SKU
+            guidance.
+          </p>
+        </div>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {items.map((item) => (
             <article

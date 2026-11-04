@@ -3,7 +3,14 @@ import { Container } from "@/components/layout/container";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export function CTASection() {
+const defaultDescription =
+  "Request a quote, schedule an integration discussion, or explore partnership options with our engineering team and Seyeon FlexWATCH support.";
+
+export function CTASection({
+  description = defaultDescription,
+}: {
+  description?: string;
+}) {
   return (
     <section className="border-y border-border/60 bg-[var(--brand-navy)] py-16">
       <Container className="text-center">
@@ -11,9 +18,7 @@ export function CTASection() {
           Ready to integrate edge AI into your platform?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-300 sm:text-base">
-          Request a quote, schedule an integration discussion, or explore
-          partnership options with our engineering team and Seyeon FlexWATCH
-          support.
+          {description}
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link

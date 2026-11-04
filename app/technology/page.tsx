@@ -10,7 +10,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export const metadata = createMetadata({
-  title: "Technology",
+  title: "FlexWATCH + Hailo-8L Edge AI Technology",
   description:
     "Seyeon FlexWATCH Open AI SDK, Hailo-8L edge acceleration, and board-level AI camera modules for toll, ITS, and PTZ. The same embedded RGB IP modules are specified for industrial, robotics, and medical-adjacent OEM programs.",
   path: "/technology",
@@ -45,7 +45,7 @@ export default function TechnologyPage() {
       <div className="border-b border-border/60 bg-[var(--brand-navy)] py-16">
         <Container>
           <h1 className="text-3xl font-semibold text-white sm:text-4xl">
-            Why Seyeon FlexWATCH + AiRC
+            Why AiRC
           </h1>
           <p className="mt-4 max-w-2xl text-slate-300">
             Technical differentiation for buyers who evaluate silicon, SDK maturity,
@@ -108,7 +108,7 @@ export default function TechnologyPage() {
         </Container>
       </section>
 
-      <CTASection />
+      <CTASection description="Request a quote, schedule an integration discussion, or explore partnership options with our engineering team." />
     </>
   );
 }

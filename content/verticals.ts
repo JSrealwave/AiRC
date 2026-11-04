@@ -17,7 +17,7 @@ export const verticals: VerticalSolution[] = [
     title: "Toll Road & Roadway Intelligence",
     headline: "Enhance LPR/ANPR and lane analytics without replacing your entire camera stack",
     image: "/solutions/toll-roadway.jpg",
-    imageAlt: "Multi-lane highway toll plaza with overhead camera gantries",
+    imageAlt: "Multi-lane toll plaza with overhead cameras for roadway LPR and ANPR",
     summary:
       "AiRC modules help toll operators and ETC integrators add vehicle classification, tamper detection, and multi-model on-device inference to proven lane hardware—optimized for high-speed capture and harsh outdoor environments.",
     challenges: [
@@ -61,7 +61,7 @@ export const verticals: VerticalSolution[] = [
     title: "ITS & Smart City Integrators",
     headline: "Intersection-scale edge AI with modular hardware and deployment-ready SDKs",
     image: "/solutions/its-smart-city.jpg",
-    imageAlt: "Urban intersection with traffic cameras and sensors on a mast arm",
+    imageAlt: "Urban intersection with ITS traffic cameras and sensors on a mast arm",
     summary:
       "ITS firms and smart city integrators use AiRC to deliver multi-sensor analytics, corridor monitoring, and V2X-adjacent vision workloads on NDAA-free, ONVIF-compliant hardware with industrial temperature ratings.",
     challenges: [

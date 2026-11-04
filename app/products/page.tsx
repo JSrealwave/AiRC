@@ -1,15 +1,14 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
-import { SectionHeading } from "@/components/marketing/section-heading";
 import { ProductCatalog } from "@/components/products/product-catalog";
 import { FAMILY_DATASHEET, products } from "@/data/products";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Products",
+  title: "Embedded RGB IP Camera Modules",
   description:
-    "Official Seyeon FlexWATCH embedded RGB IP camera modules and board-level AI camera modules, plus finished cameras. Filter by resolution, shutter, form, and toll, ITS, PTZ, industrial, robotics, or medical-adjacent use.",
+    "Embedded RGB IP camera modules and finished cameras for toll, ITS, and PTZ. Hailo-8L edge AI, ONVIF, and an NDAA-free supply chain.",
   path: "/products",
 });
 
@@ -17,16 +16,24 @@ export default function ProductsPage() {
   return (
     <div className="py-16">
       <Container>
-        <SectionHeading
-          eyebrow="Seyeon FlexWATCH catalog"
-          title="Official modules and finished cameras"
-          description="Real Seyeon model numbers: embedded RGB IP camera modules and board-level color CMOS IP modules from the FlexWATCH line, plus finished cameras. Hailo-8L (13 TOPS) is quoted as an AiRC integration — not a Seyeon list option on every SKU."
-        />
+        <div>
+          <p className="mb-2 text-sm font-medium tracking-wide text-[var(--brand-accent)] uppercase">
+            Embedded IP Module Catalog
+          </p>
+          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            Embedded RGB IP Camera Modules & Finished Cameras
+          </h1>
+          <p className="mt-3 text-muted-foreground">
+            Board-level color CMOS IP modules and finished cameras from the
+            Seyeon FlexWATCH line. Hailo-8L (13 TOPS) is available as an AiRC
+            integration on supported SKUs.
+          </p>
+        </div>
         <p className="mt-4 max-w-3xl text-sm text-muted-foreground">
-          Toll, ITS, and PTZ stay the primary catalog fit. Optional Industrial,
-          Robotics, and Medical-adjacent tags mark where the same board-level AI
-          camera modules are also specified — the module inside an OEM design,
-          not a finished robot or medical device.
+          Toll, ITS, and PTZ remain the primary catalog fit. Optional
+          Industrial, Robotics, and Medical-adjacent tags show where the same
+          modules are also specified inside OEM designs—not as finished robots
+          or medical devices.
         </p>
         <p className="mt-4 text-sm text-muted-foreground">
           <Link
