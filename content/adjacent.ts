@@ -10,21 +10,21 @@ export interface AdjacentUse {
 export const homepageAdjacentUses: AdjacentUse[] = [
   {
     title: "Industrial perimeter & critical infrastructure",
-    body: "Add Hailo-8L edge AI to existing or new mechanical designs without a full redesign. NDAA-free embedded RGB IP modules, ONVIF, and multi-model inference for perimeter and critical-infrastructure sites.",
+    body: "NDAA-free embedded RGB IP modules and ONVIF for perimeter and critical-infrastructure sites. On-device AI is available on select platforms, without a full redesign.",
     href: "/products?use=industrial",
     image: "/solutions/industrial-perimeter.jpg",
     imageAlt: "Fixed security camera on a pole overlooking a fenced electrical substation",
   },
   {
     title: "Warehouse / logistics / light machine-vision",
-    body: "Board-level color CMOS IP modules for warehouse, logistics, and light machine-vision cells. Same FlexWATCH + Hailo-8L path — drop into the mechanical design you already have.",
+    body: "Board-level color CMOS IP modules for warehouse, logistics, and light machine-vision cells. Same FlexWATCH path — drop into the mechanical design you already have.",
     href: "/products?use=industrial&form=module",
     image: "/solutions/warehouse-logistics.jpg",
     imageAlt: "Industrial camera aimed at cartons on a warehouse conveyor",
   },
   {
     title: "Robotics, AMRs & mobile platforms",
-    body: "Board-level modules for OEMs embedding vision into AMRs and mobile platforms. Hailo-8L multi-model inference and ONVIF, without a full camera redesign.",
+    body: "Board-level modules for OEMs embedding vision into AMRs and mobile platforms. ONVIF, without a full camera redesign. NPU acceleration is available on select platforms.",
     href: "/products?use=robotics",
     image: "/solutions/robotics-amr.jpg",
     imageAlt: "Compact warehouse mobile robot with a front-mounted camera",
@@ -49,7 +49,7 @@ export const solutionsAdjacentUses: AdjacentUse[] = [
   },
   {
     title: "Robotics, AMRs & mobile platforms",
-    body: "OEMs embedding vision into warehouse robots and mobile platforms use these board-level AI camera modules to add Hailo-8L multi-model inference without a full mechanical redesign.",
+    body: "OEMs embedding vision into warehouse robots and mobile platforms use these board-level camera modules without a full mechanical redesign. NPU acceleration is available on select platforms.",
     href: "/products?use=robotics",
     image: "/solutions/robotics-amr.jpg",
     imageAlt: "Compact warehouse mobile robot with a front-mounted camera",

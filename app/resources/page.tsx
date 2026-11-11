@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 export const metadata = createMetadata({
   title: "Resources",
   description:
-    "FlexWATCH + Hailo-8L family datasheet and the toll / ANPR application note for integrators.",
+    "Seyeon FlexWATCH family datasheet and the toll / ANPR application note for integrators.",
   path: "/resources",
 });
 
@@ -20,7 +20,7 @@ const items = [
     icon: FileText,
     eyebrow: "PDF · 2 pages",
     title: "Edge AI module family datasheet",
-    body: "Phase 1 catalog of embedded RGB IP camera modules and finished cameras, with Hailo-8L attach options, inputs, and ONVIF details.",
+    body: "Phase 1 catalog of embedded RGB IP camera modules and finished cameras, with inputs, ONVIF details, and NPU acceleration on select platforms.",
     cta: "Download PDF",
   },
   {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Cpu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { isAdjacentMarketTag, type Product } from "@/data/products";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -36,14 +36,14 @@ export function ProductCard({ product }: { product: Product }) {
       </Link>
       <CardHeader>
         <div className="flex flex-wrap items-center gap-2">
-          {product.hailo && (
-            <Badge variant="secondary" className="gap-1">
-              <Cpu className="size-3" />
-              Hailo-8L
-            </Badge>
-          )}
+          {product.shutter === "global" && <Badge>Global Shutter</Badge>}
           {product.ndaaCompliant && (
             <Badge variant="outline">NDAA-free</Badge>
+          )}
+          {product.hailo && (
+            <Badge variant="outline" className="font-normal text-muted-foreground">
+              NPU on select
+            </Badge>
           )}
         </div>
         <CardTitle className="mt-2 font-mono text-base tracking-tight">
@@ -58,6 +58,11 @@ export function ProductCard({ product }: { product: Product }) {
           {product.formFactor} · {product.resolution} ·{" "}
           {product.shutter === "global" ? "Global shutter" : "Rolling shutter"}
         </p>
+        {product.shutter === "global" && (
+          <p className="mt-2 text-xs text-muted-foreground">
+            Recommended for toll, ITS, and high-speed PTZ.
+          </p>
+        )}
         <div className="mt-3 flex flex-wrap gap-1.5">
           {primaryTags.map((tag) => (
             <Badge key={tag} variant="outline" className="text-xs font-normal">

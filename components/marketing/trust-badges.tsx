@@ -1,9 +1,9 @@
 import { BadgeCheck, Cpu, Globe, Shield } from "lucide-react";
 
 const badges = [
-  { icon: Shield, label: "NDAA-Free SoCs", detail: "Eyenix · Ambarella · Hailo" },
+  { icon: Shield, label: "NDAA-Free SoCs", detail: "Eyenix · Ambarella" },
   { icon: BadgeCheck, label: "Seyeon FlexWATCH", detail: "Open AI SDK partner" },
-  { icon: Cpu, label: "Hailo-8L", detail: "13 TOPS · ~1.5W · multi-model" },
+  { icon: Cpu, label: "AI Acceleration", detail: "Hailo · Kneron · select platforms" },
   { icon: Globe, label: "ONVIF", detail: "Profile S / T / M" },
 ] as const;
 

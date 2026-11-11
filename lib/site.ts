@@ -3,7 +3,7 @@ export const siteConfig = {
   legalName: "Active Image Recognition Corporation",
   tagline: "Edge AI camera modules for tolling, ITS, and PTZ platforms",
   description:
-    "Deployment-ready embedded RGB IP camera modules and board-level AI camera modules powered by Seyeon FlexWATCH and Hailo-8L. Add on-device AI to existing PTZ or roadway cameras without a full redesign.",
+    "Global-shutter modules for toll, ITS, and PTZ, with dual-exposure streaming, multi-camera shutter sync, and dynamic ISP control. Add on-device AI acceleration without a full camera redesign.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.activeimagerecognition.com",
   email: process.env.CONTACT_EMAIL ?? "sales@activeimagerecognition.com",

@@ -8,7 +8,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata = createMetadata({
   title: "Embedded RGB IP Camera Modules",
   description:
-    "Embedded RGB IP camera modules and finished cameras for toll, ITS, and PTZ. Hailo-8L edge AI, ONVIF, and an NDAA-free supply chain.",
+    "Global Shutter embedded RGB IP modules and finished cameras for toll, ITS, and PTZ. Dual-exposure, shutter sync, and dynamic ISP control. ONVIF and an NDAA-free supply chain.",
   path: "/products",
 });
 
@@ -24,11 +24,17 @@ export default function ProductsPage() {
             Embedded RGB IP Camera Modules & Finished Cameras
           </h1>
           <p className="mt-3 text-muted-foreground">
-            Board-level color CMOS IP modules and finished cameras from the
-            Seyeon FlexWATCH line. Hailo-8L (13 TOPS) is available as an AiRC
-            integration on supported SKUs.
+            Board-level color CMOS IP modules and finished cameras. Global
+            Shutter recommended for toll, ITS, and high-speed PTZ.
           </p>
         </div>
+        <p className="mt-4 max-w-3xl text-sm text-muted-foreground">
+          Dual-exposure streaming, multi-camera shutter sync, and dynamic ISP
+          control are programmable on these platforms. Seyeon FlexWATCH is the
+          technology partner. NPU acceleration is available on select platforms.
+          For higher-power acceleration, a finished camera with proper thermal
+          design is the better path than a bare module.
+        </p>
         <p className="mt-4 max-w-3xl text-sm text-muted-foreground">
           Toll, ITS, and PTZ remain the primary catalog fit. Optional
           Industrial, Robotics, and Medical-adjacent tags show where the same

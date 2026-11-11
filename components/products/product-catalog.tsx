@@ -93,10 +93,14 @@ export function ProductCatalog({ products }: { products: Product[] }) {
     router.replace(pathname, { scroll: false });
   }, [pathname, router]);
 
-  const filtered = useMemo(
-    () => filterProducts(products, { resolution, shutter, form, use }),
-    [form, products, resolution, shutter, use],
-  );
+  const filtered = useMemo(() => {
+    const list = filterProducts(products, { resolution, shutter, form, use });
+    return [...list].sort((a, b) => {
+      if (a.shutter !== b.shutter) return a.shutter === "global" ? -1 : 1;
+      if (a.formClass !== b.formClass) return a.formClass === "module" ? -1 : 1;
+      return 0;
+    });
+  }, [form, products, resolution, shutter, use]);
 
   const activeCount = [resolution, shutter, form, use].filter((v) => v !== "all").length;
 
@@ -105,7 +109,7 @@ export function ProductCatalog({ products }: { products: Product[] }) {
       <div className="rounded-xl border border-border/80 bg-card/40 p-4 sm:p-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="text-sm text-muted-foreground">
-            {filtered.length} of {products.length} Seyeon models
+            {filtered.length} of {products.length} modules
             {activeCount > 0 ? ` · ${activeCount} filter${activeCount > 1 ? "s" : ""}` : ""}
           </p>
           {activeCount > 0 && (
@@ -209,7 +213,7 @@ export function ProductCatalog({ products }: { products: Product[] }) {
 
       {filtered.length === 0 ? (
         <p className="mt-10 text-sm text-muted-foreground">
-          No Seyeon models match those filters.{" "}
+          No modules match those filters.{" "}
           <button
             type="button"
             onClick={clearAll}

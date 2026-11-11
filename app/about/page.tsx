@@ -34,10 +34,10 @@ export default function AboutPage() {
             anticipatory systems.
           </p>
           <p>
-            Our Phase 1 focus is a high-trust B2B platform for embedded AI camera
-            modules and intelligent edge cameras, powered by our partnership with{" "}
-            <strong className="text-foreground">{siteConfig.partner}</strong> and
-            Hailo-8L acceleration. Longer term, AiRC extends into autonomous drones,
+            Our Phase 1 focus is a high-trust B2B platform for Seyeon FlexWATCH
+            modules and finished cameras, powered by our partnership with{" "}
+            <strong className="text-foreground">{siteConfig.partner}</strong>.
+            NPU acceleration is available on select platforms. Longer term, AiRC extends into autonomous drones,
             mobile surveillance towers, robots, and central orchestration via AiR
             Command.
           </p>

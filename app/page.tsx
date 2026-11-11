@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, FileText, Layers, Zap } from "lucide-react";
+import { Aperture, ArrowRight, FileText, RefreshCw, SlidersHorizontal } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { ArchitectureDiagram } from "@/components/marketing/architecture-diagram";
 import { CTASection } from "@/components/marketing/cta-section";
@@ -27,17 +27,41 @@ export default function HomePage() {
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
               <p className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
-                Seyeon FlexWATCH · Hailo-8L · NDAA-free · Since 1997
+                Global Shutter · NDAA-free · ONVIF · Since 1997
               </p>
               <h1 className="max-w-xl text-3xl font-semibold tracking-tight text-white sm:text-5xl sm:leading-tight">
-                Deployment-ready embedded AI camera modules
+                Global Shutter modules with programmable control
               </h1>
               <p className="mt-6 max-w-xl text-base text-slate-300 sm:text-lg">
-                Powered by Seyeon FlexWATCH and Hailo-8L. Add advanced
-                on-device AI to your existing PTZ, roadway, or embedded designs
-                without a full redesign. Nearly 30 years of IP video heritage.
+                Dual-exposure streaming, multi-camera shutter sync, and dynamic
+                ISP control — practical tools for high-speed roadway, toll, and
+                PTZ applications. Add on-device AI acceleration without a full
+                camera redesign.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ul className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                {[
+                  {
+                    title: "Dual-exposure streaming",
+                    body: "Primary and secondary streams with independent exposure on one camera.",
+                  },
+                  {
+                    title: "Multi-camera shutter sync",
+                    body: "Frame synchronization across cameras, including strobes for LPR/ANPR.",
+                  },
+                  {
+                    title: "Dynamic ISP control",
+                    body: "ISP profiles switch on an event, motion, or time of day.",
+                  },
+                ].map((item) => (
+                  <li key={item.title}>
+                    <p className="text-sm font-medium text-white">{item.title}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-400">
+                      {item.body}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Link
                   href="/products"
                   className={cn(
@@ -47,6 +71,15 @@ export default function HomePage() {
                 >
                   Filter the catalog
                   <ArrowRight className="size-4" />
+                </Link>
+                <Link
+                  href="/contact?type=quote"
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "lg" }),
+                    "border-slate-500 text-white hover:bg-white/10",
+                  )}
+                >
+                  Request Quote
                 </Link>
                 <Link
                   href={FAMILY_DATASHEET}
@@ -98,7 +131,7 @@ export default function HomePage() {
                   Integration path
                 </p>
                 <h2 className="mt-1 text-lg font-semibold text-white">
-                  Sensor → FlexWATCH → Hailo-8L → your VMS
+                  Sensor → FlexWATCH SoC → Acceleration → Your VMS
                 </h2>
               </div>
               <Link
@@ -124,7 +157,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Solutions"
             title="Built for toll, ITS, and PTZ integrators"
-            description="Seyeon's strongest commercial traction aligns with operators and OEMs who need credible edge AI without replacing proven optics."
+            description="Dual-exposure streaming, shutter sync, and dynamic ISP control for operators and OEMs who need on-device AI acceleration without replacing proven optics."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {verticals.map((v) => (
@@ -150,26 +183,26 @@ export default function HomePage() {
       <section className="border-y border-border/60 bg-muted/20 py-16">
         <Container>
           <SectionHeading
-            eyebrow="Differentiators"
-            title="Integration-first edge AI"
-            description="Technical credibility for engineering-led buyers."
+            eyebrow="Programmable control"
+            title="What the three controls do"
+            description="Exposure, sync, and ISP behavior for toll, ITS, and PTZ."
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {[
               {
-                icon: Zap,
-                title: "FlexWATCH Open AI SDK",
-                body: "Five-step path to deploy proprietary models on-device—without rebuilding your VMS stack.",
+                icon: Aperture,
+                title: "Dual-exposure streaming",
+                body: "Primary and secondary streams with independent exposure on one camera. One imager covers reflective and non-reflective plates.",
               },
               {
-                icon: Layers,
-                title: "Official Seyeon SKUs",
-                body: "Modules, LVDS boards, and finished LPR/ANPR cameras — quoted under real FlexWATCH model numbers.",
+                icon: RefreshCw,
+                title: "Multi-camera shutter sync",
+                body: "Shutter sync across cameras, including strobes, so lanes capture the same moment for LPR/ANPR.",
               },
               {
-                icon: ArrowRight,
-                title: "Flexible video inputs",
-                body: "BT1120, LVDS, and YUV for PTZ blocks and multi-sensor gateways. No zoom-block or thermal SKUs until Seyeon confirms.",
+                icon: SlidersHorizontal,
+                title: "Dynamic ISP control",
+                body: "The ISP pipeline follows day, night, schedule, an event input, or motion — exposure, white balance, HDR, and shutter speed.",
               },
             ].map((item) => (
               <div
@@ -190,8 +223,8 @@ export default function HomePage() {
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <SectionHeading
               eyebrow="Catalog"
-              title="Featured Seyeon models"
-              description="Start with a 2MP global-shutter module, an LVDS PTZ board, or the 4K LPR box camera."
+              title="Featured modules"
+              description="Global Shutter is recommended for toll, ITS, and high-speed PTZ. Start with a 2MP global-shutter module or the 4K LPR box camera."
             />
             <Link
               href="/products"

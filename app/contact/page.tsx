@@ -7,7 +7,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata = createMetadata({
   title: "Contact",
   description:
-    "Request a quote, discuss a FlexWATCH + Hailo-8L integration, or talk through a toll, ITS, or PTZ design-in.",
+    "Request a quote or talk through a toll, ITS, or PTZ design-in. NPU acceleration is available on select platforms.",
   path: "/contact",
 });
 
@@ -17,9 +17,9 @@ export default function ContactPage() {
       <Container className="max-w-2xl">
         <h1 className="text-3xl font-semibold tracking-tight">Contact & Partner</h1>
         <p className="mt-4 text-muted-foreground">
-          Request a quote, discuss a FlexWATCH + Hailo-8L integration, or talk
-          through a toll, ITS, or PTZ design-in. We typically respond within one
-          business day.
+          Request a quote or talk through a toll, ITS, or PTZ design-in.
+          NPU acceleration is available on select platforms. We typically
+          respond within one business day.
         </p>
         <p className="mt-4 text-sm text-muted-foreground">
           {siteConfig.name} — {siteConfig.legalName}

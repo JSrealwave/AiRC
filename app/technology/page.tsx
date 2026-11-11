@@ -10,24 +10,32 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export const metadata = createMetadata({
-  title: "FlexWATCH + Hailo-8L Edge AI Technology",
+  title: "Global Shutter & Programmable Control",
   description:
-    "Seyeon FlexWATCH Open AI SDK, Hailo-8L edge acceleration, and board-level AI camera modules for toll, ITS, and PTZ. The same embedded RGB IP modules are specified for industrial, robotics, and medical-adjacent OEM programs.",
+    "Global shutter, dual-exposure streaming, multi-camera shutter sync, and dynamic ISP control. Seyeon FlexWATCH Eyenix-based modules for toll, ITS, and PTZ, with edge AI acceleration on select platforms.",
   path: "/technology",
 });
 
 const sections = [
   {
+    title: "Global shutter and rolling shutter",
+    body: "Global shutter is simultaneous exposure of the full frame and is preferred for fast-moving vehicles. Rolling shutter is a sequential readout and is generally more efficient in low light. Global shutter is the recommendation for toll, ITS, and high-speed PTZ.",
+  },
+  {
+    title: "Dual-exposure, shutter sync, and dynamic ISP",
+    body: "Dual-exposure streaming runs a primary and secondary stream with independent exposure on one camera. Multi-camera shutter sync locks timing across cameras and strobes for LPR/ANPR. Dynamic ISP control changes exposure, white balance, gamma, HDR, color, and shutter speed on day, night, schedule, an event input, or motion.",
+  },
+  {
     title: "FlexWATCH Open AI SDK",
     body: "A practical five-step path for engineering teams to deploy proprietary models on-device—without rebuilding your entire VMS or cloud inference stack. Designed for integrators who own the model IP and need field-proven hardware.",
   },
   {
-    title: "Hailo-8L at the edge",
-    body: "13 TOPS of acceleration at approximately 1.5W enables multi-model inference, improved detection, and behavior analytics with industrial temperature support—critical for outdoor toll lanes and PTZ deployments.",
+    title: "Edge AI acceleration",
+    body: "Seyeon FlexWATCH is the technology partner, and the current platform is Eyenix-based SoCs. NPU options are available on select platforms, including Hailo and Kneron where a configuration supports them, with engineering support for model integration and testing.",
   },
   {
     title: "NDAA-free supply chain",
-    body: "Eyenix, Ambarella, and Hailo SoC options support federal-adjacent and security-sensitive procurement without compromising on Sony sensor breadth (rolling and global shutter, 2 MP – 12 MP).",
+    body: "Eyenix-based SoCs are primary on the current Seyeon FlexWATCH platform, with Ambarella on select boards. That supply chain supports federal-adjacent and security-sensitive procurement across Sony sensors from 2 MP to 12 MP, in rolling and global shutter.",
   },
   {
     title: "Lego-style hardware modularity",
@@ -48,8 +56,12 @@ export default function TechnologyPage() {
             Why AiRC
           </h1>
           <p className="mt-4 max-w-2xl text-slate-300">
-            Technical differentiation for buyers who evaluate silicon, SDK maturity,
-            and integration risk—not marketing claims.
+            Global shutter, dual-exposure streaming, multi-camera shutter sync,
+            and dynamic ISP control for buyers who evaluate exposure and
+            integration risk. Seyeon FlexWATCH is the technology partner, and
+            the current platform is Eyenix-based. Edge AI acceleration is
+            available on select platforms, with engineering support for model
+            integration and testing.
           </p>
           <Link
             href={FAMILY_DATASHEET}
@@ -97,12 +109,13 @@ export default function TechnologyPage() {
               Also specified by
             </p>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-              The same FlexWATCH + Hailo-8L modules and SDK path are used by OEMs
-              in industrial automation, robotics platforms, and medical/life-science
-              systems that require on-device inference, an NDAA-free supply chain,
-              and minimal mechanical redesign. These are embedded RGB IP camera
-              modules and board-level AI camera modules for those designs — not
-              finished robots or medical devices.
+              The same Seyeon FlexWATCH modules and SDK path are used by OEMs in
+              industrial automation, robotics platforms, and medical/life-science
+              systems that need an NDAA-free supply chain and minimal mechanical
+              redesign. Edge AI acceleration is available on select platforms,
+              with engineering support for model integration.
+              These are embedded RGB IP camera modules and board-level camera
+              modules for those designs — not finished robots or medical devices.
             </p>
           </aside>
         </Container>

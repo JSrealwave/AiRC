@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 export const metadata = createMetadata({
   title: "Toll & ANPR application note",
   description:
-    "How to specify Seyeon FlexWATCH global-shutter modules and FW7300 box cameras for highway-speed LPR/ANPR, with Hailo-8L on-device models.",
+    "How to specify Seyeon FlexWATCH global-shutter modules and FW7300 box cameras for highway-speed LPR/ANPR, including dual-exposure, shutter sync, and ISP profiles.",
   path: "/resources/toll-anpr",
 });
 
@@ -107,10 +107,11 @@ export default function TollAnprNotePage() {
                 this quarter.
               </li>
               <li>
-                <strong className="text-foreground">Hailo-8L on the camera.</strong>{" "}
-                13 TOPS at ~1.5 W is enough for plate + class + tamper as
-                concurrent models. This is an AiRC integration on FlexWATCH
-                hardware, not a Seyeon list option on every SKU.
+                <strong className="text-foreground">NPU acceleration on select platforms.</strong>{" "}
+                Where the application fits, on-device acceleration can cover
+                plate, class, and tamper as concurrent models. This is an AiRC
+                integration, not a factory option on every SKU. Higher-power
+                acceleration belongs in a finished camera with a proper heat sink.
               </li>
             </ol>
           </section>
@@ -162,7 +163,7 @@ export default function TollAnprNotePage() {
               <li>Capture 48 hours of night + rain before locking IR and shutter.</li>
               <li>Measure false-read rate against the current lane camera, not a lab dataset.</li>
               <li>Confirm NDAA SoC path (Eyenix or Ambarella) in the procurement packet.</li>
-              <li>Run the customer plate model on Hailo-8L before talking about a second model.</li>
+              <li>If the design uses an NPU, prove the plate model on that platform before adding a second model.</li>
               <li>Quote volume and private-label separately — Phase 1 is request-quote only.</li>
             </ul>
           </section>

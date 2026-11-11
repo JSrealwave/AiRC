@@ -80,12 +80,16 @@ export default async function ProductDetailPage({ params }: PageProps) {
               />
             </div>
             <div className="flex flex-wrap gap-2">
-              {product.hailo && <Badge>Hailo-8L</Badge>}
-              {product.ndaaCompliant && <Badge variant="outline">NDAA-free</Badge>}
-              <Badge variant="secondary">{product.resolution}</Badge>
               <Badge variant="outline">
                 {product.shutter === "global" ? "Global shutter" : "Rolling shutter"}
               </Badge>
+              {product.ndaaCompliant && <Badge variant="outline">NDAA-free</Badge>}
+              <Badge variant="secondary">{product.resolution}</Badge>
+              {product.hailo && (
+                <Badge variant="outline" className="font-normal text-muted-foreground">
+                  NPU on select
+                </Badge>
+              )}
             </div>
             <h1 className="mt-4 font-mono text-3xl font-semibold tracking-tight">
               {product.name}
@@ -99,6 +103,25 @@ export default async function ProductDetailPage({ params }: PageProps) {
               {product.formClass === "finished" ? "Finished camera" : "Module / board"}
             </p>
             <p className="mt-6 text-muted-foreground">{product.description}</p>
+            {product.shutter === "global" && (
+              <p className="mt-4 text-sm text-muted-foreground">
+                Global shutter exposes the full frame at once. Recommended for
+                toll, ITS, and high-speed PTZ.
+              </p>
+            )}
+            {product.hailo && product.formClass === "module" && (
+              <p className="mt-3 text-sm text-muted-foreground">
+                NPU acceleration is available on select modules. Higher-power
+                acceleration is better in a finished camera with proper thermal
+                design than on a bare module.
+              </p>
+            )}
+            {product.hailo && product.formClass === "finished" && (
+              <p className="mt-3 text-sm text-muted-foreground">
+                NPU acceleration is available on select finished cameras, where
+                the housing and heat sink can support it.
+              </p>
+            )}
 
             <h2 className="mt-10 text-lg font-semibold">Highlights</h2>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-muted-foreground">

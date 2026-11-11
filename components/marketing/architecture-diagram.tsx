@@ -4,17 +4,17 @@ const stages = [
   {
     kicker: "01",
     title: "Sony CMOS",
-    body: "Rolling or global shutter, 2–12 MP. Keep the optic you already qualified.",
+    body: "Global shutter for fast-moving vehicles. Rolling shutter when low-light efficiency matters. 2–12 MP.",
   },
   {
     kicker: "02",
     title: "FlexWATCH SoC",
-    body: "Eyenix or Ambarella IP stack. NDAA-free. ONVIF S / T / M.",
+    body: "Current platform. NDAA-free. ONVIF S / T / M. Dual-exposure, shutter sync, and dynamic ISP profiles. Seyeon FlexWATCH is the technology partner.",
   },
   {
     kicker: "03",
-    title: "Hailo-8L",
-    body: "13 TOPS, ~1.5 W, multi-model. Quoted and integrated by AiRC.",
+    title: "Edge AI acceleration",
+    body: "NPU options available on select platforms. Engineering support for model integration and testing.",
   },
   {
     kicker: "04",

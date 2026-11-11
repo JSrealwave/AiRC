@@ -89,7 +89,7 @@ export const products: Product[] = [
     shortDescription:
       "Single-board 2MP rolling-shutter module for compact ITS and lane integration.",
     description:
-      "Seyeon’s FWC-EE1-307 is a 2MP rolling-shutter IP camera module on a single board (Eyenix SoC, ~1/2.8\" CMOS). AiRC quotes it with Hailo-8L integration for operators who want on-device models without redesigning lane optics.",
+      "Seyeon’s FWC-EE1-307 is a 2MP rolling-shutter IP camera module on a single board (Eyenix SoC, ~1/2.8\" CMOS). Rolling shutter reads the frame sequentially and is the more efficient low-light choice. NPU acceleration can be quoted on select configurations when on-device models are required.",
     formFactor: "Single-board IP module",
     formClass: "module",
     resolution: "2 MP",
@@ -109,7 +109,7 @@ export const products: Product[] = [
     highlights: [
       "Official Seyeon 2MP rolling-shutter module (1-board)",
       "Eyenix SoC — NDAA-free supply path",
-      "Hailo-8L integration quoted through AiRC",
+      "NPU acceleration available on select configurations via AiRC",
     ],
     specs: [
       { label: "Seyeon model", value: "FWC-EE1-307" },
@@ -118,7 +118,7 @@ export const products: Product[] = [
       { label: "SoC", value: "Eyenix (NDAA-free)" },
       { label: "Sensor", value: "CMOS, ~1/2.8\"" },
       { label: "Form", value: "Single-board IP module" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, Profile T" },
     ],
   },
@@ -135,7 +135,7 @@ export const products: Product[] = [
     shortDescription:
       "2MP global-shutter module for high-speed LPR/ANPR and free-flow lanes.",
     description:
-      "FWC-EX2-0234 is Seyeon’s 2MP global-shutter IP camera module (Eyenix). Global shutter is the right starting point for highway-speed plate capture where rolling-shutter smear is unacceptable. AiRC adds Hailo-8L for multi-model on-device inference.",
+      "FWC-EX2-0234 is Seyeon’s 2MP global-shutter IP camera module (Eyenix). Global shutter exposes the full frame at once and is the right starting point for highway-speed plate capture. NPU acceleration can be quoted on select configurations.",
     formFactor: "IP camera module",
     formClass: "module",
     resolution: "2 MP",
@@ -165,7 +165,7 @@ export const products: Product[] = [
       { label: "SoC", value: "Eyenix (NDAA-free)" },
       { label: "Sensor", value: "CMOS" },
       { label: "Form", value: "IP camera module" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, Profile T" },
     ],
   },
@@ -194,7 +194,7 @@ export const products: Product[] = [
     idealFor: ["Tolling / ANPR", "ITS / Roadway", "Global Shutter", "Medical-adjacent"],
     highlights: [
       "5MP global shutter for wider lanes",
-      "Eyenix + Hailo-8L integration path",
+      "Eyenix SoC, with NPU acceleration on select configurations",
       "Same FlexWATCH SDK footprint as 2MP / 8MP siblings",
     ],
     specs: [
@@ -204,7 +204,7 @@ export const products: Product[] = [
       { label: "SoC", value: "Eyenix (NDAA-free)" },
       { label: "Sensor", value: "CMOS" },
       { label: "Form", value: "IP camera module" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, Profile T" },
     ],
   },
@@ -243,7 +243,7 @@ export const products: Product[] = [
       { label: "SoC", value: "Eyenix (NDAA-free)" },
       { label: "Sensor", value: "CMOS" },
       { label: "Form", value: "IP camera module" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, T, M" },
     ],
   },
@@ -273,7 +273,7 @@ export const products: Product[] = [
     highlights: [
       "12MP for intersection and corridor overview",
       "Pairs with LVDS boards for multi-sensor builds",
-      "Hailo-8L for multi-model analytics at the edge",
+      "NPU acceleration available on select configurations",
     ],
     specs: [
       { label: "Seyeon model", value: "FWC-EX1-412" },
@@ -282,7 +282,7 @@ export const products: Product[] = [
       { label: "SoC", value: "Eyenix (NDAA-free)" },
       { label: "Sensor", value: "CMOS" },
       { label: "Form", value: "IP camera module" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, T, M" },
     ],
   },
@@ -299,7 +299,7 @@ export const products: Product[] = [
     shortDescription:
       "LVDS IP board for embedding FlexWATCH intelligence into existing PTZ and block cameras.",
     description:
-      "FWM-EX1-L2M is a 2MP/4MP LVDS IP board. It is the integration piece for PTZ OEMs: keep your mechanics and optics, attach FlexWATCH over LVDS, and add Hailo-8L through AiRC instead of spinning a new camera program.",
+      "FWM-EX1-L2M is a 2MP/4MP LVDS IP board. It is the integration piece for PTZ OEMs: keep your mechanics and optics, attach FlexWATCH over LVDS, and add on-device AI on select configurations instead of spinning a new camera program.",
     formFactor: "LVDS IP board",
     formClass: "module",
     resolution: "2 / 4 MP",
@@ -321,7 +321,7 @@ export const products: Product[] = [
       { label: "Interface", value: "LVDS" },
       { label: "SoC", value: "Eyenix (NDAA-free)" },
       { label: "Form", value: "LVDS IP board" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, T, M" },
       { label: "Primary use", value: "PTZ and block-camera embed" },
     ],
@@ -353,14 +353,14 @@ export const products: Product[] = [
     highlights: [
       "Ambarella IP mainboard — NDAA-free path",
       "5MP class for PTZ and custom housings",
-      "Hailo-8L attach via AiRC without a full mechanical redesign",
+      "On-device AI on select configurations, without a full mechanical redesign",
     ],
     specs: [
       { label: "Seyeon model", value: "FW1172-A3T55" },
       { label: "Resolution", value: "5 MP" },
       { label: "SoC", value: "Ambarella (NDAA-free)" },
       { label: "Form", value: "IP mainboard" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, T, M" },
       { label: "Primary use", value: "PTZ core / custom enclosure" },
     ],
@@ -378,7 +378,7 @@ export const products: Product[] = [
     shortDescription:
       "8MP LVDS IP board for high-resolution PTZ and multi-sensor embeds.",
     description:
-      "FWM-EX1-H2M is the 8MP LVDS sibling of FWM-EX1-L2M. Use it when the host PTZ or sensor block is 4K-class and you still want FlexWATCH IP plus Hailo-8L without replacing the optical block.",
+      "FWM-EX1-H2M is the 8MP LVDS sibling of FWM-EX1-L2M. Use it when the host PTZ or sensor block is 4K-class and you still want FlexWATCH IP without replacing the optical block. NPU acceleration is available on select configurations.",
     formFactor: "LVDS IP board",
     formClass: "module",
     resolution: "8 MP",
@@ -399,7 +399,7 @@ export const products: Product[] = [
       { label: "Interface", value: "LVDS" },
       { label: "SoC", value: "Eyenix (NDAA-free)" },
       { label: "Form", value: "LVDS IP board" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, T, M" },
     ],
   },
@@ -417,7 +417,7 @@ export const products: Product[] = [
     shortDescription:
       "Finished 4K global-shutter box camera purpose-built for LPR and ANPR lanes.",
     description:
-      "FW7300-GKN is Seyeon’s 4K (8MP-class) global-shutter box camera, catalogued for LPR and ANPR. It is the finished-camera answer when an integrator needs a roadway enclosure, C-mount optics, and a global shutter—not a bare module. AiRC quotes Hailo-8L on-device models for classification, tamper, and plate workflows.",
+      "FW7300-GKN is Seyeon’s 4K (8MP-class) global-shutter box camera, catalogued for LPR and ANPR. It is the finished-camera answer when an integrator needs a roadway enclosure, C-mount optics, and a global shutter—not a bare module. On select configurations, AiRC quotes NPU acceleration. A finished housing with a proper heat sink is the preferred place for higher-power acceleration.",
     formFactor: "Box / roadway enclosure",
     formClass: "finished",
     resolution: "8 MP / 4K",
@@ -431,7 +431,7 @@ export const products: Product[] = [
     highlights: [
       "Official Seyeon LPR/ANPR 4K global-shutter box",
       "C-mount style optics for lane-specific lenses",
-      "Hailo-8L multi-model path via AiRC",
+      "NPU acceleration available on select configurations via AiRC",
     ],
     specs: [
       { label: "Seyeon model", value: "FW7300-GKN" },
@@ -439,7 +439,7 @@ export const products: Product[] = [
       { label: "Shutter", value: "Global" },
       { label: "Enclosure", value: "Box camera (roadway / plaza)" },
       { label: "Catalog use", value: "LPR, ANPR" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, T, M" },
       { label: "NDAA", value: "Compliant SoC supply chain" },
     ],
@@ -471,7 +471,7 @@ export const products: Product[] = [
     highlights: [
       "Same FW7300 enclosure as the 4K GKN",
       "5MP global shutter for dedicated plate cameras",
-      "Hailo-8L via AiRC for on-device plate + class models",
+      "On-device plate and class models on select configurations",
     ],
     specs: [
       { label: "Seyeon model", value: "FW7300-GPN" },
@@ -479,7 +479,7 @@ export const products: Product[] = [
       { label: "Shutter", value: "Global" },
       { label: "Enclosure", value: "Box camera (roadway / plaza)" },
       { label: "Catalog use", value: "LPR, ANPR" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, T, M" },
     ],
   },
@@ -516,7 +516,7 @@ export const products: Product[] = [
       { label: "Resolution", value: "5 MP" },
       { label: "Lens", value: "Autofocus" },
       { label: "Enclosure", value: "Vandal-resistant dome" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, Profile T" },
       { label: "Branding", value: "AiRC private-label available" },
     ],
@@ -553,7 +553,7 @@ export const products: Product[] = [
       { label: "Seyeon model", value: "FW7904-PXM" },
       { label: "Resolution", value: "5 MP" },
       { label: "Form", value: "PTZ bullet IP camera" },
-      { label: "AI path", value: "Hailo-8L (13 TOPS, ~1.5W) via AiRC" },
+      { label: "AI path", value: "NPU acceleration on select configurations via AiRC" },
       { label: "ONVIF", value: "Profile S, T, M" },
       { label: "Related embed", value: "FWM-EX1-L2M, FW1172-A3T55" },
     ],
@@ -565,7 +565,12 @@ export function getProductBySlug(slug: string): Product | undefined {
 }
 
 export function getFeaturedProducts(): Product[] {
-  return products.filter((p) => p.featured);
+  return products
+    .filter((p) => p.featured)
+    .sort((a, b) => {
+      if (a.shutter !== b.shutter) return a.shutter === "global" ? -1 : 1;
+      return 0;
+    });
 }
 
 export function filterProducts(
